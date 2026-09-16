@@ -66,7 +66,7 @@ export default function FeaturedWork() {
             <Link
               key={project.id}
               to={project.link}
-              className="group flex flex-col justify-between w-full bg-white rounded-2xl sm:rounded-3xl border border-stone-200/80 shadow-[0_4px_20px_rgba(0,0,0,0.025)] hover:shadow-xl hover:-translate-y-1 active:scale-[0.995] transition-all duration-300 ease-out cursor-pointer overflow-hidden p-5 sm:p-6 lg:p-7"
+              className="group flex flex-col justify-between w-full bg-transparent rounded-2xl sm:rounded-3xl border border-stone-200/80 hover:border-stone-300/80 hover:-translate-y-1 active:scale-[0.995] transition-all duration-300 ease-out cursor-pointer overflow-hidden p-5 sm:p-6 lg:p-7"
             >
               {/* 1. NUMBER (Top-Left of Card) */}
               <div className="mb-2 sm:mb-3">
@@ -76,7 +76,7 @@ export default function FeaturedWork() {
               </div>
 
               {/* 2. IMAGE (Directly Underneath Number) */}
-              <div className="w-full aspect-[16/10] bg-stone-50/40 rounded-xl sm:rounded-2xl p-3 sm:p-4 mb-4 sm:mb-5 flex items-center justify-center overflow-hidden border border-stone-100">
+              <div className="w-full aspect-[16/10] bg-transparent rounded-xl sm:rounded-2xl p-3 sm:p-4 mb-4 sm:mb-5 flex items-center justify-center overflow-hidden border border-stone-200/60">
                 <img
                   src={project.image}
                   alt={project.title}
