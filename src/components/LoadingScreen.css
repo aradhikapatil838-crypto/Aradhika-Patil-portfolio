@@ -43,10 +43,10 @@
   pointer-events: none;
 }
 
-/* Smooth curtain slide to the right over 2 seconds with cubic-bezier(0.76, 0, 0.24, 1) */
+/* Smooth curtain slide to the right over 3 seconds with cubic-bezier(0.76, 0, 0.24, 1) */
 .loading-screen-container.slide-right .loading-image-wrapper {
   transform: translateX(120vw);
-  transition: transform 2s cubic-bezier(0.76, 0, 0.24, 1);
+  transition: transform 3s cubic-bezier(0.76, 0, 0.24, 1);
 }
 
 /* Responsive fine-tuning for smaller screens */
