@@ -1,116 +1,146 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 
-// 3 Organic SVG Petal Variations matching the hero artwork flower palette
-const PetalSVG1 = ({ fill = '#F7B5C8', stroke = '#E690A8' }) => (
-  <svg viewBox="0 0 24 24" className="w-full h-full drop-shadow-[0_1px_2px_rgba(0,0,0,0.06)]">
+// Hand-illustrated pink teardrop petals matching the homepage artwork
+// Each SVG includes a solid offset shadow underneath to match the illustration style
+const IllustratedPetal1 = () => (
+  <svg viewBox="0 0 28 32" className="w-full h-full overflow-visible">
+    {/* Solid Illustrated Offset Shadow */}
     <path
-      d="M12 2C8 2 4 6 4 12C4 17 8 22 13 22C18 22 21 16 20 10C19 5 15 2 12 2Z"
-      fill={fill}
-      stroke={stroke}
-      strokeWidth="0.5"
+      d="M 14 2 C 8 4 3 10 4 18 C 5 25 11 29 18 28 C 24 26 27 18 24 10 C 22 5 18 1 14 2 Z"
+      fill="#102D3B"
+      fillOpacity="0.32"
+      transform="translate(1.8, 2.2)"
+    />
+    {/* Main Petal Fill */}
+    <path
+      d="M 14 2 C 8 4 3 10 4 18 C 5 25 11 29 18 28 C 24 26 27 18 24 10 C 22 5 18 1 14 2 Z"
+      fill="#F8A7C4"
+      stroke="#DE7296"
+      strokeWidth="0.8"
+    />
+    {/* Inner Petal Shading Detail */}
+    <path
+      d="M 14 4 C 11.5 10 12.5 18 16.5 24"
+      stroke="#CF537C"
+      strokeWidth="1"
       strokeLinecap="round"
+      fill="none"
     />
-    <path d="M12 4C11.5 8 11.5 14 13 18" stroke={stroke} strokeWidth="0.5" strokeOpacity="0.45" fill="none" />
   </svg>
 );
 
-const PetalSVG2 = ({ fill = '#F4A6BC', stroke = '#DF7E99' }) => (
-  <svg viewBox="0 0 24 24" className="w-full h-full drop-shadow-[0_1px_2px_rgba(0,0,0,0.06)]">
+const IllustratedPetal2 = () => (
+  <svg viewBox="0 0 28 32" className="w-full h-full overflow-visible">
+    {/* Solid Offset Shadow */}
     <path
-      d="M11 2C6 3 3 8 3 13C3 18 7 21 12 21C17 21 21 17 21 11C21 6 16 1 11 2Z"
-      fill={fill}
-      stroke={stroke}
-      strokeWidth="0.5"
+      d="M 13 2 C 7 3 2 8 3 16 C 4 24 10 28 17 27 C 23 25 26 17 25 9 C 23 4 17 1 13 2 Z"
+      fill="#102D3B"
+      fillOpacity="0.32"
+      transform="translate(1.8, 2.2)"
     />
-    <path d="M11 3C11 8 11 13 12 18" stroke={stroke} strokeWidth="0.5" strokeOpacity="0.45" fill="none" />
-  </svg>
-);
-
-const PetalSVG3 = ({ fill = '#FAC0CF', stroke = '#EA97AE' }) => (
-  <svg viewBox="0 0 24 24" className="w-full h-full drop-shadow-[0_1px_2px_rgba(0,0,0,0.06)]">
+    {/* Main Petal */}
     <path
-      d="M12 2C9 3 5 7 5 12C5 16 8 20 13 20C17 20 20 16 20 11C20 6 16 1 12 2Z"
-      fill={fill}
-      stroke={stroke}
-      strokeWidth="0.5"
+      d="M 13 2 C 7 3 2 8 3 16 C 4 24 10 28 17 27 C 23 25 26 17 25 9 C 23 4 17 1 13 2 Z"
+      fill="#F6A0BE"
+      stroke="#D7678C"
+      strokeWidth="0.8"
     />
-    <path d="M12 4C11.5 8 12 13 13 17" stroke={stroke} strokeWidth="0.5" strokeOpacity="0.45" fill="none" />
+    {/* Inner Fold Line */}
+    <path
+      d="M 13 4.5 C 11 10.5 13 18.5 16 23.5"
+      stroke="#C84872"
+      strokeWidth="1"
+      strokeLinecap="round"
+      fill="none"
+    />
   </svg>
 );
 
+const IllustratedPetal3 = () => (
+  <svg viewBox="0 0 28 32" className="w-full h-full overflow-visible">
+    {/* Solid Offset Shadow */}
+    <path
+      d="M 14 2.5 C 8.5 3.5 4 9 4.5 17 C 5 24 10.5 28 17.5 27 C 23.5 25.5 26 18 24.5 10.5 C 23 5 18.5 2 14 2.5 Z"
+      fill="#102D3B"
+      fillOpacity="0.32"
+      transform="translate(1.8, 2.2)"
+    />
+    {/* Main Petal */}
+    <path
+      d="M 14 2.5 C 8.5 3.5 4 9 4.5 17 C 5 24 10.5 28 17.5 27 C 23.5 25.5 26 18 24.5 10.5 C 23 5 18.5 2 14 2.5 Z"
+      fill="#FAAEC8"
+      stroke="#E27A9E"
+      strokeWidth="0.8"
+    />
+    {/* Inner Detail Line */}
+    <path
+      d="M 14 5 C 12 11 13.5 18.5 17 23.5"
+      stroke="#D25881"
+      strokeWidth="1"
+      strokeLinecap="round"
+      fill="none"
+    />
+  </svg>
+);
+
+// 5 Minimal Petals starting in the upper-middle hero area (around Home nav)
+// drifting mostly downward with a gentle rightward angle toward the girl's palette
 const PETALS = [
   {
     id: 1,
-    size: 15,
-    left: '-4%',
-    top: '-6%',
-    duration: '11s',
+    width: 24,
+    height: 27,
+    left: '36%',
+    top: '-2%',
+    duration: '11.5s',
     delay: '0s',
-    blur: '0px',
-    opacity: 0.85,
-    animation: 'petalDrift1',
-    Shape: PetalSVG1,
+    animation: 'petalVerticalFall1',
+    Shape: IllustratedPetal1,
   },
   {
     id: 2,
-    size: 10,
-    left: '12%',
-    top: '-10%',
-    duration: '13.5s',
-    delay: '2.5s',
-    blur: '0.8px',
-    opacity: 0.7,
-    animation: 'petalDrift2',
-    Shape: PetalSVG2,
+    width: 20,
+    height: 23,
+    left: '44%',
+    top: '-6%',
+    duration: '14s',
+    delay: '3.2s',
+    animation: 'petalVerticalFall2',
+    Shape: IllustratedPetal2,
   },
   {
     id: 3,
-    size: 18,
-    left: '-8%',
-    top: '15%',
-    duration: '9.5s',
-    delay: '4.8s',
-    blur: '0px',
-    opacity: 0.9,
-    animation: 'petalDrift3',
-    Shape: PetalSVG3,
+    width: 26,
+    height: 29,
+    left: '32%',
+    top: '4%',
+    duration: '10s',
+    delay: '6.5s',
+    animation: 'petalVerticalFall3',
+    Shape: IllustratedPetal3,
   },
   {
     id: 4,
-    size: 9,
-    left: '26%',
-    top: '-8%',
-    duration: '12s',
-    delay: '1.2s',
-    blur: '1.2px',
-    opacity: 0.6,
-    animation: 'petalDrift1',
-    Shape: PetalSVG2,
+    width: 22,
+    height: 25,
+    left: '48%',
+    top: '-4%',
+    duration: '13s',
+    delay: '1.8s',
+    animation: 'petalVerticalFall1',
+    Shape: IllustratedPetal2,
   },
   {
     id: 5,
-    size: 16,
-    left: '-6%',
-    top: '30%',
-    duration: '10.5s',
-    delay: '6.2s',
-    blur: '0.4px',
-    opacity: 0.8,
-    animation: 'petalDrift2',
-    Shape: PetalSVG1,
-  },
-  {
-    id: 6,
-    size: 12,
-    left: '6%',
-    top: '-4%',
-    duration: '14s',
-    delay: '8s',
-    blur: '0px',
-    opacity: 0.75,
-    animation: 'petalDrift3',
-    Shape: PetalSVG3,
+    width: 25,
+    height: 28,
+    left: '40%',
+    top: '2%',
+    duration: '12.5s',
+    delay: '8.5s',
+    animation: 'petalVerticalFall2',
+    Shape: IllustratedPetal1,
   },
 ];
 
@@ -124,7 +154,7 @@ export default function Hero() {
         className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none select-none"
       />
 
-      {/* Gentle Floating Pink Petals Animation Layer */}
+      {/* Gentle Floating Pink Petals Layer */}
       <div
         className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-[5]"
         aria-hidden="true"
@@ -136,12 +166,10 @@ export default function Hero() {
               key={petal.id}
               className="hero-petal absolute pointer-events-none will-change-transform"
               style={{
-                width: `${petal.size}px`,
-                height: `${petal.size * 1.15}px`,
+                width: `${petal.width}px`,
+                height: `${petal.height}px`,
                 left: petal.left,
                 top: petal.top,
-                filter: petal.blur !== '0px' ? `blur(${petal.blur})` : 'none',
-                opacity: petal.opacity,
                 animation: `${petal.animation} ${petal.duration} cubic-bezier(0.37, 0, 0.63, 1) infinite`,
                 animationDelay: petal.delay,
               }}
