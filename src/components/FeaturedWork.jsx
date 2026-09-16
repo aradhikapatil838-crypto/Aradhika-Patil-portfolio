@@ -76,13 +76,36 @@ export default function FeaturedWork() {
               </div>
 
               {/* 2. IMAGE (Directly Underneath Number) */}
-              <div className="w-full aspect-[16/10] bg-transparent mb-4 sm:mb-5 flex items-center justify-center overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full max-h-[220px] sm:max-h-[240px] object-contain object-center group-hover:scale-[1.03] transition-transform duration-500 ease-out"
-                />
-              </div>
+              {project.id === 'elderly-care' ? (
+                <div className="w-full aspect-[16/10] bg-transparent mb-4 sm:mb-5 flip-image-wrapper">
+                  <div className="flip-image-inner">
+                    {/* Front Image */}
+                    <div className="flip-image-front">
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-full max-h-[220px] sm:max-h-[240px] object-contain object-center"
+                      />
+                    </div>
+                    {/* Back Image */}
+                    <div className="flip-image-back">
+                      <img
+                        src="/elderly frame 1 flip.jpg"
+                        alt={`${project.title} back`}
+                        className="w-full h-full max-h-[220px] sm:max-h-[240px] object-contain object-center"
+                      />
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <div className="w-full aspect-[16/10] bg-transparent mb-4 sm:mb-5 flex items-center justify-center overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full max-h-[220px] sm:max-h-[240px] object-contain object-center group-hover:scale-[1.03] transition-transform duration-500 ease-out"
+                  />
+                </div>
+              )}
 
               {/* 3. PROJECT TITLE & 4. DESCRIPTION */}
               <div className="space-y-2 mb-4 sm:mb-5 flex-grow">

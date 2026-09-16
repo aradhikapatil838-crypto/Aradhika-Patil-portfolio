@@ -194,3 +194,42 @@ body {
     @apply font-sans;
   }
 }
+
+/* 3D X-Axis Flip Animation for Elderly Care Project Card */
+.flip-image-wrapper {
+  perspective: 1000px;
+}
+
+.flip-image-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.flip-image-wrapper:hover .flip-image-inner {
+  transform: rotateX(180deg);
+}
+
+.flip-image-front,
+.flip-image-back {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.flip-image-front {
+  transform: rotateX(0deg);
+}
+
+.flip-image-back {
+  transform: rotateX(180deg);
+}
