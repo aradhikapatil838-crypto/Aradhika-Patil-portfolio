@@ -47,16 +47,13 @@ export default function FeaturedWork() {
 
         {/* Section Header: "Selected work." */}
         <div className="flex items-end justify-between border-b border-stone-200/60 pb-6">
-          <h2
-            className="text-4xl sm:text-5xl lg:text-6xl text-[#0C2B3A] font-normal tracking-tight"
-            style={{ fontFamily: "'Elsie Swash Caps', 'Elsie', 'Playfair Display', serif" }}
-          >
+          <h2 className="heading-editorial-section text-[#0C2B3A]">
             Selected work<span className="text-[#0C2B3A]">.</span>
           </h2>
 
           <Link
             to="/work"
-            className="text-xs sm:text-sm font-medium text-[#0C2B3A] hover:text-[#164359] flex items-center gap-1.5 transition-colors group cursor-pointer"
+            className="label-editorial text-[#0C2B3A] hover:text-[#164359] flex items-center gap-1.5 transition-colors group cursor-pointer"
           >
             <span>View all</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -65,7 +62,7 @@ export default function FeaturedWork() {
 
         {/* Large Horizontal Project Cards Stack (One Project Per Row) */}
         <div className="flex flex-col space-y-10 sm:space-y-12 lg:space-y-14 pb-12 sm:pb-16">
-          {projects.map((project) => (
+          {projects.map((project, index) => (
             <Link
               key={project.id}
               to={project.link}
@@ -78,24 +75,29 @@ export default function FeaturedWork() {
 
                   {/* Title & Description Container */}
                   <div className="space-y-4 sm:space-y-5">
-                    {/* Project Title */}
-                    <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#0C2B3A] tracking-tight leading-[1.2] group-hover:text-[#164359] transition-colors duration-200">
-                      {project.title}
-                    </h3>
+                    {/* Project Number & Title */}
+                    <div className="space-y-2">
+                      <span className="label-editorial text-[#164359]/50 block">
+                        0{index + 1}
+                      </span>
+                      <h3 className="heading-editorial-project text-[#0C2B3A] group-hover:text-[#164359] transition-colors duration-200">
+                        {project.title}
+                      </h3>
+                    </div>
 
                     {/* Short Description */}
-                    <p className="text-sm sm:text-base lg:text-lg text-[#164359]/80 font-normal leading-relaxed max-w-xl">
+                    <p className="font-sans-body text-sm sm:text-base text-[#164359]/80 font-normal leading-[1.7] max-w-xl">
                       {project.description}
                     </p>
                   </div>
 
                   {/* Bottom: Categories / Tags & View Link */}
                   <div className="pt-6 sm:pt-8 border-t border-stone-200/50 flex flex-wrap items-center justify-between gap-4">
-                    <p className="text-xs sm:text-sm font-semibold tracking-wider text-[#1B4054]/70 uppercase">
+                    <p className="label-editorial text-[#1B4054]/75">
                       {project.categories}
                     </p>
 
-                    <span className="inline-flex items-center gap-1 text-xs sm:text-sm font-medium text-[#0C2B3A] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200 shrink-0">
+                    <span className="inline-flex items-center gap-1 font-sans-body text-xs sm:text-sm font-medium tracking-wide text-[#0C2B3A] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200 shrink-0">
                       <span>View project</span>
                       <ArrowUpRight className="w-4 h-4" />
                     </span>

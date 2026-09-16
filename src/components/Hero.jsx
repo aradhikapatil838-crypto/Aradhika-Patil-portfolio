@@ -16,7 +16,7 @@ export default function Hero() {
         <div className="max-w-md sm:max-w-xl md:max-w-2xl lg:max-w-3xl text-left pt-2 sm:pt-6">
 
           {/* Greeting Header */}
-          <p className="text-base sm:text-lg md:text-xl font-medium text-[#1B4054] mb-1 sm:mb-1.5 tracking-wide">
+          <p className="label-editorial text-[#1B4054] mb-2 sm:mb-3">
             Hi, I am
           </p>
 
@@ -30,7 +30,7 @@ export default function Hero() {
           </div>
 
           {/* 3. Subtitle / Bio Paragraph */}
-          <p className="text-sm sm:text-base md:text-lg text-[#164359] font-normal leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg mb-6 sm:mb-8">
+          <p className="text-sm sm:text-base md:text-lg text-[#164359] font-normal leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg mb-6 sm:mb-8 font-sans-body">
             A UX Designer living at the intersection of psychology and design.
             My favorite pastime? Overthinking why do people behave the way they do.
           </p>
@@ -39,7 +39,7 @@ export default function Hero() {
           <div className="flex flex-wrap items-center gap-3 sm:gap-4">
             <Link
               to="/work"
-              className="bg-[#0C2B3A] text-white hover:bg-[#164359] font-medium px-6 sm:px-7 py-3 rounded-full text-xs sm:text-sm transition-all duration-200 cursor-pointer inline-flex items-center gap-2 group shadow-sm"
+              className="bg-[#0C2B3A] text-white hover:bg-[#164359] font-medium px-6 sm:px-7 py-3 rounded-full text-xs sm:text-sm tracking-wide font-sans-body transition-all duration-200 cursor-pointer inline-flex items-center gap-2 group shadow-sm"
             >
               <span>View my work</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -47,7 +47,7 @@ export default function Hero() {
 
             <Link
               to="/about"
-              className="bg-transparent border border-[#0C2B3A]/40 text-[#0C2B3A] hover:bg-[#0C2B3A]/10 font-medium px-6 sm:px-7 py-3 rounded-full text-xs sm:text-sm transition-all duration-200 cursor-pointer inline-flex items-center"
+              className="bg-transparent border border-[#0C2B3A]/40 text-[#0C2B3A] hover:bg-[#0C2B3A]/10 font-medium px-6 sm:px-7 py-3 rounded-full text-xs sm:text-sm tracking-wide font-sans-body transition-all duration-200 cursor-pointer inline-flex items-center"
             >
               About me
             </Link>

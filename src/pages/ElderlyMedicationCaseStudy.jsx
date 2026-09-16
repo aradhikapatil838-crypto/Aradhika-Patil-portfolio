@@ -110,7 +110,7 @@ export default function ElderlyMedicationCaseStudy() {
 
           {/* Hero Title & Description */}
           <div className="space-y-6 sm:space-y-8 max-w-5xl">
-            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[84px] font-extrabold text-[#0C2B3A] tracking-tight leading-[1.08]">
+            <h1 className="heading-editorial-h1 text-[#0C2B3A]">
               Managing Poly-Medication <br className="hidden sm:inline" />
               for Elderly Care
             </h1>
@@ -123,21 +123,21 @@ export default function ElderlyMedicationCaseStudy() {
           {/* Editorial Metadata Grid (No heavy cards) */}
           <div className="pt-8 sm:pt-12 border-t border-stone-300/60 grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12">
             <div className="space-y-2">
-              <p className="text-xs font-bold tracking-widest text-[#1B4054]/60 uppercase">MY ROLE</p>
+              <p className="label-editorial text-[#1B4054]/75">MY ROLE</p>
               <p className="text-sm sm:text-base text-[#0C2B3A] font-medium leading-relaxed">
                 UX Research, User Interviews, Behavioural Research, Interaction Design, Information Architecture, Wireframing, Visual Design, Prototyping
               </p>
             </div>
 
             <div className="space-y-2">
-              <p className="text-xs font-bold tracking-widest text-[#1B4054]/60 uppercase">PROJECT TYPE</p>
+              <p className="label-editorial text-[#1B4054]/75">PROJECT TYPE</p>
               <p className="text-sm sm:text-base text-[#0C2B3A] font-medium leading-relaxed">
                 UX Research · Interaction Design · Accessibility
               </p>
             </div>
 
             <div className="space-y-2">
-              <p className="text-xs font-bold tracking-widest text-[#1B4054]/60 uppercase">FOCUS</p>
+              <p className="label-editorial text-[#1B4054]/75">FOCUS</p>
               <p className="text-sm sm:text-base text-[#0C2B3A] font-medium leading-relaxed">
                 Elderly Users · Caregivers · Poly-Medication
               </p>
@@ -165,7 +165,7 @@ export default function ElderlyMedicationCaseStudy() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
             {/* Left Column: Text (42%) */}
             <div className="lg:col-span-5 space-y-6">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0C2B3A] tracking-tight leading-[1.15]">
+              <h2 className="heading-editorial-section text-[#0C2B3A]">
                 Managing medicines sounds simple — until there are too many.
               </h2>
 
@@ -204,8 +204,8 @@ export default function ElderlyMedicationCaseStudy() {
         <section className="py-12 sm:py-16 border-y border-stone-300/60 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           {/* Left Column: Huge Question & Copy */}
           <div className="lg:col-span-6 space-y-6">
-            <span className="text-xs font-bold tracking-widest text-[#1B4054]/60 uppercase">RESEARCH DISCOVERY</span>
-            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-[#0C2B3A] tracking-tight leading-[1.12]">
+            <span className="label-editorial text-[#1B4054]/75">RESEARCH DISCOVERY</span>
+            <h2 className="heading-editorial-section text-[#0C2B3A]">
               How do elderly people actually remember their medicines?
             </h2>
 
@@ -259,7 +259,7 @@ export default function ElderlyMedicationCaseStudy() {
         ==================================================================== */}
         <section className="space-y-12 sm:space-y-16">
           <div className="max-w-3xl space-y-4">
-            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-[#0C2B3A] tracking-tight">
+            <h2 className="heading-editorial-section text-[#0C2B3A]">
               Understanding the current behaviour
             </h2>
             <p className="text-base sm:text-lg text-[#164359]/80 font-normal leading-relaxed">
@@ -271,7 +271,7 @@ export default function ElderlyMedicationCaseStudy() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10 pt-4">
             <div className="space-y-4 p-8 bg-white/70 rounded-3xl border border-stone-200/80">
               <span className="text-3xl font-extrabold text-[#7EAEC3]">01</span>
-              <h3 className="text-xl font-bold text-[#0C2B3A]">User conversations</h3>
+              <h3 className="heading-editorial-project text-[#0C2B3A]">User conversations</h3>
               <p className="text-sm sm:text-base text-[#164359]/80 leading-relaxed">
                 I studied how older adults currently organise their medicines, how they describe them, and what language they naturally use.
               </p>
@@ -279,7 +279,7 @@ export default function ElderlyMedicationCaseStudy() {
 
             <div className="space-y-4 p-8 bg-white/70 rounded-3xl border border-stone-200/80">
               <span className="text-3xl font-extrabold text-[#7EAEC3]">02</span>
-              <h3 className="text-xl font-bold text-[#0C2B3A]">Behavioural & HCI research</h3>
+              <h3 className="heading-editorial-project text-[#0C2B3A]">Behavioural & HCI research</h3>
               <p className="text-sm sm:text-base text-[#164359]/80 leading-relaxed">
                 I explored research around ageing, memory, medication adherence, habit formation, cognitive load, and interface usability for older adults.
               </p>
@@ -287,7 +287,7 @@ export default function ElderlyMedicationCaseStudy() {
 
             <div className="space-y-4 p-8 bg-white/70 rounded-3xl border border-stone-200/80">
               <span className="text-3xl font-extrabold text-[#7EAEC3]">03</span>
-              <h3 className="text-xl font-bold text-[#0C2B3A]">Existing solutions</h3>
+              <h3 className="heading-editorial-project text-[#0C2B3A]">Existing solutions</h3>
               <p className="text-sm sm:text-base text-[#164359]/80 leading-relaxed">
                 I analysed medication reminder applications and found that many still depend heavily on text, forms, medical terminology and individual medicine schedules.
               </p>
@@ -301,8 +301,8 @@ export default function ElderlyMedicationCaseStudy() {
         ==================================================================== */}
         <section className="space-y-12 sm:space-y-16">
           <div className="space-y-6">
-            <span className="text-xs font-bold tracking-widest text-[#1B4054]/60 uppercase">KEY INSIGHT 01</span>
-            <h2 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-[#0C2B3A] tracking-tight leading-[1.08] max-w-4xl">
+            <span className="label-editorial text-[#1B4054]/75">KEY INSIGHT 01</span>
+            <h2 className="heading-editorial-section text-[#0C2B3A]">
               Older adults often remember medicines visually — not medically.
             </h2>
             <p className="text-base sm:text-xl text-[#164359]/80 font-normal leading-relaxed max-w-3xl">
@@ -363,8 +363,8 @@ export default function ElderlyMedicationCaseStudy() {
         ==================================================================== */}
         <section className="p-8 sm:p-14 bg-[#F5F0E6]/80 rounded-[36px] border border-stone-300/70 space-y-10 sm:space-y-14">
           <div className="space-y-4">
-            <span className="text-xs font-bold tracking-widest text-[#1B4054]/60 uppercase">KEY INSIGHT 02</span>
-            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-[#0C2B3A] tracking-tight leading-[1.12] max-w-4xl">
+            <span className="label-editorial text-[#1B4054]/75">KEY INSIGHT 02</span>
+            <h2 className="heading-editorial-section text-[#0C2B3A]">
               Time is not always the strongest reminder. Routine is.
             </h2>
             <p className="text-base sm:text-lg text-[#164359]/85 leading-relaxed max-w-3xl">
@@ -404,8 +404,8 @@ export default function ElderlyMedicationCaseStudy() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
             {/* Left Column: Heading & Intro */}
             <div className="lg:col-span-5 space-y-6">
-              <span className="text-xs font-bold tracking-widest text-[#1B4054]/60 uppercase">CORE PROBLEM</span>
-              <h2 className="text-4xl sm:text-6xl font-extrabold text-[#0C2B3A] tracking-tight leading-[1.08]">
+              <span className="label-editorial text-[#1B4054]/75">CORE PROBLEM</span>
+              <h2 className="heading-editorial-section text-[#0C2B3A]">
                 Problem <br /> statement
               </h2>
 
@@ -429,8 +429,8 @@ export default function ElderlyMedicationCaseStudy() {
 
           {/* HMW Box */}
           <div className="p-8 sm:p-12 bg-white rounded-3xl border-2 border-[#0C2B3A]/20 space-y-4 shadow-sm">
-            <span className="text-xs font-extrabold tracking-widest text-[#1B4054] uppercase">HOW MIGHT WE...</span>
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-[#0C2B3A] leading-snug">
+            <span className="label-editorial text-[#1B4054]/75">HOW MIGHT WE...</span>
+            <h3 className="heading-editorial-project text-[#0C2B3A]">
               How might we help elderly users manage multiple medicines without forcing them to learn a complex digital system?
             </h3>
             <p className="text-base sm:text-lg text-[#164359]/80 leading-relaxed">
@@ -445,8 +445,8 @@ export default function ElderlyMedicationCaseStudy() {
         ==================================================================== */}
         <section className="space-y-12 sm:space-y-16">
           <div className="max-w-3xl space-y-4">
-            <span className="text-xs font-bold tracking-widest text-[#1B4054]/60 uppercase">GUIDING FRAMEWORK</span>
-            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-[#0C2B3A] tracking-tight leading-[1.12]">
+            <span className="label-editorial text-[#1B4054]/75">GUIDING FRAMEWORK</span>
+            <h2 className="heading-editorial-section text-[#0C2B3A]">
               The experience needed to feel familiar before it felt intelligent.
             </h2>
           </div>
@@ -455,7 +455,7 @@ export default function ElderlyMedicationCaseStudy() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10">
             <div className="p-8 sm:p-10 bg-white rounded-3xl border border-stone-200/80 space-y-4">
               <span className="text-sm font-extrabold tracking-widest text-[#7EAEC3]">PRINCIPLE 01</span>
-              <h3 className="text-xl sm:text-2xl font-bold text-[#0C2B3A]">RECOGNISE, DON'T RECALL</h3>
+              <h3 className="heading-editorial-project text-[#0C2B3A]">RECOGNISE, DON'T RECALL</h3>
               <p className="text-base text-[#164359]/80 leading-relaxed">
                 Use medicine shape, colour and visual appearance instead of relying only on medicine names.
               </p>
@@ -463,7 +463,7 @@ export default function ElderlyMedicationCaseStudy() {
 
             <div className="p-8 sm:p-10 bg-white rounded-3xl border border-stone-200/80 space-y-4">
               <span className="text-sm font-extrabold tracking-widest text-[#7EAEC3]">PRINCIPLE 02</span>
-              <h3 className="text-xl sm:text-2xl font-bold text-[#0C2B3A]">ONE DECISION AT A TIME</h3>
+              <h3 className="heading-editorial-project text-[#0C2B3A]">ONE DECISION AT A TIME</h3>
               <p className="text-base text-[#164359]/80 leading-relaxed">
                 Avoid dense forms and complicated multi-step decisions that overwhelm attention.
               </p>
@@ -471,7 +471,7 @@ export default function ElderlyMedicationCaseStudy() {
 
             <div className="p-8 sm:p-10 bg-white rounded-3xl border border-stone-200/80 space-y-4">
               <span className="text-sm font-extrabold tracking-widest text-[#7EAEC3]">PRINCIPLE 03</span>
-              <h3 className="text-xl sm:text-2xl font-bold text-[#0C2B3A]">ROUTINE OVER RIGID SCHEDULES</h3>
+              <h3 className="heading-editorial-project text-[#0C2B3A]">ROUTINE OVER RIGID SCHEDULES</h3>
               <p className="text-base text-[#164359]/80 leading-relaxed">
                 Connect medicine reminders to familiar everyday activities like tea time or meal times.
               </p>
@@ -479,7 +479,7 @@ export default function ElderlyMedicationCaseStudy() {
 
             <div className="p-8 sm:p-10 bg-white rounded-3xl border border-stone-200/80 space-y-4">
               <span className="text-sm font-extrabold tracking-widest text-[#7EAEC3]">PRINCIPLE 04</span>
-              <h3 className="text-xl sm:text-2xl font-bold text-[#0C2B3A]">REASSURANCE OVER PUNISHMENT</h3>
+              <h3 className="heading-editorial-project text-[#0C2B3A]">REASSURANCE OVER PUNISHMENT</h3>
               <p className="text-base text-[#164359]/80 leading-relaxed">
                 Missed medicines should not make elderly users feel that they failed. Provide gentle support.
               </p>
@@ -493,8 +493,8 @@ export default function ElderlyMedicationCaseStudy() {
         ==================================================================== */}
         <section className="space-y-12 sm:space-y-16">
           <div className="space-y-6">
-            <span className="text-xs font-bold tracking-widest text-[#1B4054]/60 uppercase">THE SOLUTION</span>
-            <h2 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-[#0C2B3A] tracking-tight leading-[1.08] max-w-4xl">
+            <span className="label-editorial text-[#1B4054]/75">THE SOLUTION</span>
+            <h2 className="heading-editorial-section text-[#0C2B3A]">
               Designing around how people already remember.
             </h2>
 
@@ -528,7 +528,7 @@ export default function ElderlyMedicationCaseStudy() {
         ==================================================================== */}
         <section className="space-y-10 sm:space-y-14">
           <div className="max-w-3xl space-y-4">
-            <h2 className="text-3xl sm:text-5xl font-extrabold text-[#0C2B3A] tracking-tight">
+            <h2 className="heading-editorial-section text-[#0C2B3A]">
               Adding a medicine without filling a long form.
             </h2>
             <p className="text-base sm:text-lg text-[#164359]/80 leading-relaxed">
@@ -540,13 +540,13 @@ export default function ElderlyMedicationCaseStudy() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="p-8 bg-white rounded-3xl border border-stone-200/80 space-y-4">
               <span className="text-xs font-bold tracking-widest text-[#7EAEC3] uppercase">PATH 01</span>
-              <h3 className="text-xl font-bold text-[#0C2B3A]">PRESCRIPTION SCAN</h3>
+              <h3 className="heading-editorial-project text-[#0C2B3A]">PRESCRIPTION SCAN</h3>
               <p className="text-sm text-[#164359]/80">Scan prescription → Detect medicines → Review list → Confirm</p>
             </div>
 
             <div className="p-8 bg-white rounded-3xl border border-stone-200/80 space-y-4">
               <span className="text-xs font-bold tracking-widest text-[#7EAEC3] uppercase">PATH 02</span>
-              <h3 className="text-xl font-bold text-[#0C2B3A]">VOICE-ASSISTED SETUP</h3>
+              <h3 className="heading-editorial-project text-[#0C2B3A]">VOICE-ASSISTED SETUP</h3>
               <p className="text-sm text-[#164359]/80">The system asks one simple question at a time (“What colour is it?”, “When do you take it?”)</p>
             </div>
           </div>
@@ -569,7 +569,7 @@ export default function ElderlyMedicationCaseStudy() {
         <section className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           {/* Left Column: Text & Attributes */}
           <div className="lg:col-span-5 space-y-6">
-            <h2 className="text-3xl sm:text-5xl font-extrabold text-[#0C2B3A] tracking-tight leading-[1.12]">
+            <h2 className="heading-editorial-section text-[#0C2B3A]">
               Make the medicine recognisable at a glance.
             </h2>
 
@@ -611,7 +611,7 @@ export default function ElderlyMedicationCaseStudy() {
         ==================================================================== */}
         <section className="space-y-12 sm:space-y-16">
           <div className="max-w-3xl space-y-4">
-            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-[#0C2B3A] tracking-tight">
+            <h2 className="heading-editorial-section text-[#0C2B3A]">
               What do I need to take right now?
             </h2>
             <p className="text-base sm:text-lg text-[#164359]/80 leading-relaxed">
@@ -654,7 +654,7 @@ export default function ElderlyMedicationCaseStudy() {
         ==================================================================== */}
         <section className="space-y-10 sm:space-y-14">
           <div className="max-w-3xl space-y-4">
-            <h2 className="text-3xl sm:text-5xl font-extrabold text-[#0C2B3A] tracking-tight">
+            <h2 className="heading-editorial-section text-[#0C2B3A]">
               Medicines grouped around life — not around the interface.
             </h2>
             <p className="text-base sm:text-lg text-[#164359]/80 leading-relaxed">
@@ -696,7 +696,7 @@ export default function ElderlyMedicationCaseStudy() {
         ==================================================================== */}
         <section className="space-y-10 sm:space-y-14">
           <div className="max-w-3xl space-y-4">
-            <h2 className="text-3xl sm:text-5xl font-extrabold text-[#0C2B3A] tracking-tight">
+            <h2 className="heading-editorial-section text-[#0C2B3A]">
               Sometimes the reminder starts before the medicine.
             </h2>
             <p className="text-base sm:text-lg text-[#164359]/80 leading-relaxed">
@@ -733,7 +733,7 @@ export default function ElderlyMedicationCaseStudy() {
         ==================================================================== */}
         <section className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
           <div className="lg:col-span-5 space-y-6">
-            <h2 className="text-3xl sm:text-5xl font-extrabold text-[#0C2B3A] tracking-tight leading-[1.12]">
+            <h2 className="heading-editorial-section text-[#0C2B3A]">
               Care without taking away independence.
             </h2>
             <p className="text-base sm:text-lg text-[#164359]/80 leading-relaxed">
@@ -779,8 +779,8 @@ export default function ElderlyMedicationCaseStudy() {
         ==================================================================== */}
         <section className="space-y-12 sm:space-y-16">
           <div className="max-w-3xl space-y-4">
-            <span className="text-xs font-bold tracking-widest text-[#1B4054]/60 uppercase">ACCESSIBILITY ARCHITECTURE</span>
-            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-[#0C2B3A] tracking-tight leading-[1.12]">
+            <span className="label-editorial text-[#1B4054]/75">ACCESSIBILITY ARCHITECTURE</span>
+            <h2 className="heading-editorial-section text-[#0C2B3A]">
               Designed for ageing eyes, hands and attention.
             </h2>
           </div>
@@ -788,32 +788,32 @@ export default function ElderlyMedicationCaseStudy() {
           {/* Editorial Accessibility Decision Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="p-8 bg-white rounded-3xl border border-stone-200/80 space-y-3">
-              <h3 className="text-lg font-bold text-[#0C2B3A]">LARGE TYPOGRAPHY</h3>
+              <h3 className="heading-editorial-project text-[#0C2B3A]">LARGE TYPOGRAPHY</h3>
               <p className="text-sm text-[#164359]/80">Body text designed around approximately 18px or larger for easy readability.</p>
             </div>
 
             <div className="p-8 bg-white rounded-3xl border border-stone-200/80 space-y-3">
-              <h3 className="text-lg font-bold text-[#0C2B3A]">LARGE TOUCH TARGETS</h3>
+              <h3 className="heading-editorial-project text-[#0C2B3A]">LARGE TOUCH TARGETS</h3>
               <p className="text-sm text-[#164359]/80">Important action buttons designed at 56px or larger for steady tapping.</p>
             </div>
 
             <div className="p-8 bg-white rounded-3xl border border-stone-200/80 space-y-3">
-              <h3 className="text-lg font-bold text-[#0C2B3A]">ONE PRIMARY ACTION</h3>
+              <h3 className="heading-editorial-project text-[#0C2B3A]">ONE PRIMARY ACTION</h3>
               <p className="text-sm text-[#164359]/80">Avoid competing primary actions on a single screen to preserve focus.</p>
             </div>
 
             <div className="p-8 bg-white rounded-3xl border border-stone-200/80 space-y-3">
-              <h3 className="text-lg font-bold text-[#0C2B3A]">ICONS + LABELS</h3>
+              <h3 className="heading-editorial-project text-[#0C2B3A]">ICONS + LABELS</h3>
               <p className="text-sm text-[#164359]/80">Never depend on icons alone; pair every icon with explicit text labels.</p>
             </div>
 
             <div className="p-8 bg-white rounded-3xl border border-stone-200/80 space-y-3">
-              <h3 className="text-lg font-bold text-[#0C2B3A]">CLEAR CONFIRMATION</h3>
+              <h3 className="heading-editorial-project text-[#0C2B3A]">CLEAR CONFIRMATION</h3>
               <p className="text-sm text-[#164359]/80">Tell users exactly what happened immediately after taking any action.</p>
             </div>
 
             <div className="p-8 bg-white rounded-3xl border border-stone-200/80 space-y-3">
-              <h3 className="text-lg font-bold text-[#0C2B3A]">UNDO CAPACITY</h3>
+              <h3 className="heading-editorial-project text-[#0C2B3A]">UNDO CAPACITY</h3>
               <p className="text-sm text-[#164359]/80">Allow users to recover instantly from accidental taps without panic.</p>
             </div>
           </div>
@@ -826,7 +826,7 @@ export default function ElderlyMedicationCaseStudy() {
         <section className="p-10 sm:p-16 bg-[#0C2B3A] text-white rounded-[36px] space-y-10">
           <div className="max-w-2xl space-y-3">
             <span className="text-xs font-bold tracking-widest text-[#7EAEC3] uppercase">MICROCOPY DESIGN</span>
-            <h2 className="text-3xl sm:text-5xl font-extrabold leading-tight">
+            <h2 className="heading-editorial-section text-[#0C2B3A]">
               Words matter when confidence is low.
             </h2>
           </div>
@@ -856,7 +856,7 @@ export default function ElderlyMedicationCaseStudy() {
         ==================================================================== */}
         <section className="space-y-12 sm:space-y-16">
           <div className="max-w-3xl space-y-4">
-            <h2 className="text-3xl sm:text-5xl font-extrabold text-[#0C2B3A] tracking-tight">
+            <h2 className="heading-editorial-section text-[#0C2B3A]">
               What changed through the process?
             </h2>
           </div>
@@ -917,8 +917,8 @@ export default function ElderlyMedicationCaseStudy() {
         ==================================================================== */}
         <section className="space-y-12 sm:space-y-16">
           <div className="space-y-4 max-w-4xl">
-            <span className="text-xs font-bold tracking-widest text-[#1B4054]/60 uppercase">FINAL SYSTEM</span>
-            <h2 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-[#0C2B3A] tracking-tight leading-[1.08]">
+            <span className="label-editorial text-[#1B4054]/75">FINAL SYSTEM</span>
+            <h2 className="heading-editorial-section text-[#0C2B3A]">
               A medication system designed around how people actually remember.
             </h2>
           </div>
@@ -940,8 +940,8 @@ export default function ElderlyMedicationCaseStudy() {
         ==================================================================== */}
         <section className="space-y-12 sm:space-y-16 pt-8">
           <div className="max-w-3xl space-y-6">
-            <span className="text-xs font-bold tracking-widest text-[#1B4054]/60 uppercase">REFLECTION</span>
-            <h2 className="text-3xl sm:text-5xl font-extrabold text-[#0C2B3A] tracking-tight">
+            <span className="label-editorial text-[#1B4054]/75">REFLECTION</span>
+            <h2 className="heading-editorial-section text-[#0C2B3A]">
               What I learned
             </h2>
 
