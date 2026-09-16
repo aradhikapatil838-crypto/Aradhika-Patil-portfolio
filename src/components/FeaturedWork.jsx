@@ -42,11 +42,11 @@ export default function FeaturedWork() {
   ];
 
   return (
-    <section className="w-full bg-transparent pt-12 sm:pt-16 lg:pt-20 pb-0 px-0 relative overflow-hidden">
-      <div className="max-w-[1320px] mx-auto px-6 sm:px-10 lg:px-12 space-y-10 sm:space-y-14 lg:space-y-16">
+    <section className="w-full bg-transparent pt-10 sm:pt-14 lg:pt-16 pb-0 px-0 relative overflow-hidden">
+      <div className="max-w-[1140px] mx-auto px-5 sm:px-8 lg:px-10 space-y-8 sm:space-y-12 lg:space-y-14">
 
         {/* Section Header: "Selected work." */}
-        <div className="flex items-end justify-between border-b border-stone-200/60 pb-6">
+        <div className="flex items-end justify-between border-b border-stone-200/60 pb-5">
           <h2 className="heading-editorial-section text-[#0C2B3A]">
             Selected work<span className="text-[#0C2B3A]">.</span>
           </h2>
@@ -61,32 +61,32 @@ export default function FeaturedWork() {
         </div>
 
         {/* 2 x 2 Project Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 pb-12 sm:pb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 pb-10 sm:pb-14">
           {projects.map((project, index) => (
             <Link
               key={project.id}
               to={project.link}
-              className="group flex flex-col justify-between w-full bg-white rounded-3xl sm:rounded-[32px] border border-stone-200/80 shadow-[0_4px_20px_rgba(0,0,0,0.025)] hover:shadow-xl hover:-translate-y-1.5 active:scale-[0.995] transition-all duration-300 ease-out cursor-pointer overflow-hidden p-6 sm:p-8 lg:p-9"
+              className="group flex flex-col justify-between w-full bg-white rounded-2xl sm:rounded-3xl border border-stone-200/80 shadow-[0_4px_20px_rgba(0,0,0,0.025)] hover:shadow-xl hover:-translate-y-1 active:scale-[0.995] transition-all duration-300 ease-out cursor-pointer overflow-hidden p-5 sm:p-6 lg:p-7"
             >
               {/* 1. NUMBER (Top-Left of Card) */}
-              <div className="mb-3">
+              <div className="mb-2 sm:mb-3">
                 <span className="label-editorial text-xs sm:text-[13px] tracking-[0.14em] text-[#164359]/50 block">
                   0{index + 1}
                 </span>
               </div>
 
               {/* 2. IMAGE (Directly Underneath Number) */}
-              <div className="w-full aspect-[4/3] bg-stone-50/40 rounded-2xl p-4 sm:p-6 mb-6 flex items-center justify-center overflow-hidden border border-stone-100">
+              <div className="w-full aspect-[16/10] bg-stone-50/40 rounded-xl sm:rounded-2xl p-3 sm:p-4 mb-4 sm:mb-5 flex items-center justify-center overflow-hidden border border-stone-100">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full max-h-[260px] sm:max-h-[280px] object-contain object-center group-hover:scale-[1.03] transition-transform duration-500 ease-out"
+                  className="w-full h-full max-h-[190px] sm:max-h-[220px] object-contain object-center group-hover:scale-[1.03] transition-transform duration-500 ease-out"
                 />
               </div>
 
               {/* 3. PROJECT TITLE & 4. DESCRIPTION */}
-              <div className="space-y-3 mb-6 flex-grow">
-                <h3 className="heading-editorial-project text-[#0C2B3A] group-hover:text-[#164359] transition-colors duration-200">
+              <div className="space-y-2 mb-4 sm:mb-5 flex-grow">
+                <h3 className="heading-editorial-project text-xl sm:text-2xl lg:text-[26px] leading-tight text-[#0C2B3A] group-hover:text-[#164359] transition-colors duration-200">
                   {project.title}
                 </h3>
                 <p className="font-sans-body text-xs sm:text-sm text-[#164359]/80 font-normal leading-relaxed">
@@ -95,8 +95,8 @@ export default function FeaturedWork() {
               </div>
 
               {/* 5. PROJECT TAGS & 6. VIEW PROJECT LINK */}
-              <div className="pt-5 border-t border-stone-200/60 flex items-center justify-between gap-3 mt-auto">
-                <p className="label-editorial text-[11px] sm:text-xs text-[#1B4054]/75 truncate max-w-[65%]">
+              <div className="pt-4 border-t border-stone-200/60 flex items-center justify-between gap-3 mt-auto">
+                <p className="label-editorial text-[10px] sm:text-[11px] text-[#1B4054]/75 truncate max-w-[65%]">
                   {project.categories}
                 </p>
 
@@ -112,3 +112,4 @@ export default function FeaturedWork() {
     </section>
   );
 }
+
