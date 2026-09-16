@@ -25,7 +25,7 @@ export default function Header() {
         {/* Right Side: Let's talk button */}
         <Link
           to="/contact"
-          className="bg-white text-[#0C2B3A] hover:bg-white/95 font-medium px-5 sm:px-6 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm transition-all duration-200 cursor-pointer inline-flex items-center gap-1.5 shadow-sm"
+          className="bg-white text-[#0C2B3A] hover:bg-white/95 font-serif-editorial font-normal px-5 sm:px-6 py-2 sm:py-2.5 rounded-full text-base sm:text-lg transition-all duration-200 cursor-pointer inline-flex items-center gap-1.5 shadow-sm"
         >
           <span>Let's talk</span>
           <ArrowUpRight className="w-4 h-4" />
