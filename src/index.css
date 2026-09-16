@@ -195,7 +195,7 @@ body {
   }
 }
 
-/* 3D Y-Axis Flip Animation for Elderly Care Project Card */
+/* 3D X-Axis Flip Animation for Elderly Care Project Card */
 .flip-image-wrapper {
   perspective: 1000px;
 }
@@ -209,8 +209,10 @@ body {
   transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Trigger flip when hovering over the card */
+.group:hover .flip-image-inner,
 .flip-image-wrapper:hover .flip-image-inner {
-  transform: rotateY(180deg);
+  transform: rotateX(180deg);
 }
 
 .flip-image-front,
@@ -227,9 +229,9 @@ body {
 }
 
 .flip-image-front {
-  transform: rotateY(0deg);
+  transform: rotateX(0deg);
 }
 
 .flip-image-back {
-  transform: rotateY(180deg);
+  transform: rotateX(180deg);
 }
