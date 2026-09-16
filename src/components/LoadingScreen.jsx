@@ -14,11 +14,11 @@ export default function LoadingScreen() {
       setIsAnimating(true);
     }, 1500);
 
-    // 2. Complete animation after 8.0 seconds (1.5s hold + 6.0s ultra-slow slide)
+    // 2. Complete animation after 10.8 seconds (1.5s hold + 9.0s ultra-slow character slide)
     const finishTimer = setTimeout(() => {
       setIsFinished(true);
       document.body.style.overflow = '';
-    }, 8000);
+    }, 10800);
 
     return () => {
       clearTimeout(holdTimer);
