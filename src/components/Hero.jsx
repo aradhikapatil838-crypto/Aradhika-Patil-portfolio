@@ -169,7 +169,7 @@ export default function Hero() {
                 height: `${petal.height}px`,
                 left: petal.left,
                 top: petal.top,
-                animation: `${petal.animation} ${petal.duration} cubic-bezier(0.37, 0, 0.63, 1) infinite`,
+                animation: `${petal.animation} ${petal.duration} linear infinite`,
                 animationDelay: petal.delay,
               }}
             >

@@ -236,22 +236,19 @@ body {
   transform: rotateX(180deg);
 }
 
-/* Hero Section - Drifting Illustrated Pink Petal Keyframes (Slanting Diagonal Trajectory) */
+/* Hero Section - Perfectly Smooth Drifting Pink Petal Keyframes */
 @keyframes petalDrift1 {
   0% {
     transform: translate3d(0, 0, 0) rotate(0deg);
     opacity: 0;
   }
-  12% {
+  10% {
     opacity: 1;
   }
-  30% {
-    transform: translate3d(28vw, 28vh, 0) rotate(90deg) scale(1.04);
+  50% {
+    transform: translate3d(48vw, 54vh, 0) rotate(180deg);
   }
-  60% {
-    transform: translate3d(58vw, 60vh, 0) rotate(190deg) scale(0.96);
-  }
-  85% {
+  90% {
     opacity: 1;
   }
   100% {
@@ -268,13 +265,10 @@ body {
   10% {
     opacity: 1;
   }
-  35% {
-    transform: translate3d(32vw, 24vh, 0) rotate(-80deg) scale(0.94);
+  50% {
+    transform: translate3d(51vw, 55vh, 0) rotate(-170deg);
   }
-  65% {
-    transform: translate3d(62vw, 58vh, 0) rotate(-180deg) scale(1.05);
-  }
-  88% {
+  90% {
     opacity: 1;
   }
   100% {
@@ -288,14 +282,11 @@ body {
     transform: translate3d(0, 0, 0) rotate(0deg);
     opacity: 0;
   }
-  15% {
+  10% {
     opacity: 1;
   }
-  40% {
-    transform: translate3d(38vw, 40vh, 0) rotate(120deg) scale(1.03);
-  }
-  75% {
-    transform: translate3d(70vw, 75vh, 0) rotate(240deg) scale(0.97);
+  50% {
+    transform: translate3d(49vw, 54vh, 0) rotate(170deg);
   }
   90% {
     opacity: 1;
