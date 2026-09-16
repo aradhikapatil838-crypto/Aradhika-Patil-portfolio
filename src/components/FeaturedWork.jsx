@@ -61,12 +61,12 @@ export default function FeaturedWork() {
         </div>
 
         {/* 2 x 2 Project Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 pb-10 sm:pb-14">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 pb-10 sm:pb-14">
           {projects.map((project, index) => (
             <Link
               key={project.id}
               to={project.link}
-              className="group flex flex-col justify-between w-full bg-transparent rounded-2xl sm:rounded-3xl border border-stone-200/80 hover:border-stone-300/80 hover:-translate-y-1 active:scale-[0.995] transition-all duration-300 ease-out cursor-pointer overflow-hidden p-5 sm:p-6 lg:p-7"
+              className="group flex flex-col justify-between w-full bg-transparent hover:-translate-y-1 active:scale-[0.995] transition-all duration-300 ease-out cursor-pointer p-0"
             >
               {/* 1. NUMBER (Top-Left of Card) */}
               <div className="mb-2 sm:mb-3">
@@ -76,11 +76,11 @@ export default function FeaturedWork() {
               </div>
 
               {/* 2. IMAGE (Directly Underneath Number) */}
-              <div className="w-full aspect-[16/10] bg-transparent rounded-xl sm:rounded-2xl p-3 sm:p-4 mb-4 sm:mb-5 flex items-center justify-center overflow-hidden border border-stone-200/60">
+              <div className="w-full aspect-[16/10] bg-transparent mb-4 sm:mb-5 flex items-center justify-center overflow-hidden">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full max-h-[190px] sm:max-h-[220px] object-contain object-center group-hover:scale-[1.03] transition-transform duration-500 ease-out"
+                  className="w-full h-full max-h-[220px] sm:max-h-[240px] object-contain object-center group-hover:scale-[1.03] transition-transform duration-500 ease-out"
                 />
               </div>
 
@@ -95,7 +95,7 @@ export default function FeaturedWork() {
               </div>
 
               {/* 5. PROJECT TAGS & 6. VIEW PROJECT LINK */}
-              <div className="pt-4 border-t border-stone-200/60 flex items-center justify-between gap-3 mt-auto">
+              <div className="pt-2 flex items-center justify-between gap-3 mt-auto">
                 <p className="label-editorial text-[10px] sm:text-[11px] text-[#1B4054]/75 truncate max-w-[65%]">
                   {project.categories}
                 </p>
