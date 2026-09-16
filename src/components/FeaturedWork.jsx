@@ -60,62 +60,50 @@ export default function FeaturedWork() {
           </Link>
         </div>
 
-        {/* Large Horizontal Project Cards Stack (One Project Per Row) */}
-        <div className="flex flex-col space-y-10 sm:space-y-12 lg:space-y-14 pb-12 sm:pb-16">
+        {/* 2 x 2 Project Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 pb-12 sm:pb-16">
           {projects.map((project, index) => (
             <Link
               key={project.id}
               to={project.link}
-              className="group block w-full bg-white rounded-3xl sm:rounded-[32px] border border-stone-200/80 shadow-[0_4px_20px_rgba(0,0,0,0.025)] hover:shadow-xl hover:-translate-y-1.5 active:scale-[0.995] transition-all duration-300 ease-out cursor-pointer overflow-hidden"
+              className="group flex flex-col justify-between w-full bg-white rounded-3xl sm:rounded-[32px] border border-stone-200/80 shadow-[0_4px_20px_rgba(0,0,0,0.025)] hover:shadow-xl hover:-translate-y-1.5 active:scale-[0.995] transition-all duration-300 ease-out cursor-pointer overflow-hidden p-6 sm:p-8 lg:p-9"
             >
-              <div className="flex flex-col lg:flex-row items-stretch min-h-[380px] lg:min-h-[420px]">
+              {/* 1. NUMBER (Top-Left of Card) */}
+              <div className="mb-3">
+                <span className="label-editorial text-xs sm:text-[13px] tracking-[0.14em] text-[#164359]/50 block">
+                  0{index + 1}
+                </span>
+              </div>
 
-                {/* LEFT SIDE: Project Information (50% width on desktop) */}
-                <div className="w-full lg:w-[50%] p-8 sm:p-10 lg:p-12 xl:p-14 flex flex-col justify-between space-y-6">
+              {/* 2. IMAGE (Directly Underneath Number) */}
+              <div className="w-full aspect-[4/3] bg-stone-50/40 rounded-2xl p-4 sm:p-6 mb-6 flex items-center justify-center overflow-hidden border border-stone-100">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full max-h-[260px] sm:max-h-[280px] object-contain object-center group-hover:scale-[1.03] transition-transform duration-500 ease-out"
+                />
+              </div>
 
-                  {/* Title & Description Container */}
-                  <div className="space-y-4 sm:space-y-5">
-                    {/* Project Number & Title */}
-                    <div className="space-y-2">
-                      <span className="label-editorial text-[#164359]/50 block">
-                        0{index + 1}
-                      </span>
-                      <h3 className="heading-editorial-project text-[#0C2B3A] group-hover:text-[#164359] transition-colors duration-200">
-                        {project.title}
-                      </h3>
-                    </div>
+              {/* 3. PROJECT TITLE & 4. DESCRIPTION */}
+              <div className="space-y-3 mb-6 flex-grow">
+                <h3 className="heading-editorial-project text-[#0C2B3A] group-hover:text-[#164359] transition-colors duration-200">
+                  {project.title}
+                </h3>
+                <p className="font-sans-body text-xs sm:text-sm text-[#164359]/80 font-normal leading-relaxed">
+                  {project.description}
+                </p>
+              </div>
 
-                    {/* Short Description */}
-                    <p className="font-sans-body text-sm sm:text-base text-[#164359]/80 font-normal leading-[1.7] max-w-xl">
-                      {project.description}
-                    </p>
-                  </div>
+              {/* 5. PROJECT TAGS & 6. VIEW PROJECT LINK */}
+              <div className="pt-5 border-t border-stone-200/60 flex items-center justify-between gap-3 mt-auto">
+                <p className="label-editorial text-[11px] sm:text-xs text-[#1B4054]/75 truncate max-w-[65%]">
+                  {project.categories}
+                </p>
 
-                  {/* Bottom: Categories / Tags & View Link */}
-                  <div className="pt-6 sm:pt-8 border-t border-stone-200/50 flex flex-wrap items-center justify-between gap-4">
-                    <p className="label-editorial text-[#1B4054]/75">
-                      {project.categories}
-                    </p>
-
-                    <span className="inline-flex items-center gap-1 font-sans-body text-xs sm:text-sm font-medium tracking-wide text-[#0C2B3A] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200 shrink-0">
-                      <span>View project</span>
-                      <ArrowUpRight className="w-4 h-4" />
-                    </span>
-                  </div>
-
-                </div>
-
-                {/* RIGHT SIDE: Illustration (50% width on desktop) */}
-                <div className="w-full lg:w-[50%] bg-white p-3 sm:p-5 lg:p-6 flex items-center justify-center relative overflow-hidden">
-                  <div className="w-full h-full min-h-[300px] sm:min-h-[360px] lg:min-h-[420px] max-h-[520px] flex items-center justify-center relative">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full max-h-[480px] lg:max-h-[500px] object-contain object-center group-hover:scale-[1.02] transition-transform duration-500 ease-out"
-                    />
-                  </div>
-                </div>
-
+                <span className="inline-flex items-center gap-1 font-sans-body text-xs font-medium tracking-wide text-[#0C2B3A] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200 shrink-0">
+                  <span>View project</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </span>
               </div>
             </Link>
           ))}
