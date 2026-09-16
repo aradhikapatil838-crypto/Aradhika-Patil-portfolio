@@ -31,7 +31,7 @@ export default function Hero() {
 
           {/* 3. Subtitle / Bio Info Paragraph */}
           <p className="font-serif-editorial text-xl sm:text-2xl lg:text-[26px] text-[#164359] font-normal leading-[1.6] max-w-md sm:max-w-2xl mb-8 sm:mb-10">
-            A UX Designer living at the intersection of psychology and design.
+            A <strong className="font-semibold text-[#0C2B3A]">UX Designer</strong> living at the <strong className="font-semibold text-[#0C2B3A]">intersection of psychology and design</strong>.
             My favorite pastime? Overthinking why do people behave the way they do.
           </p>
 
