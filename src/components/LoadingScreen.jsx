@@ -2,10 +2,28 @@ import React, { useState, useEffect } from 'react';
 import './LoadingScreen.css';
 
 export default function LoadingScreen() {
+  // Check if user has already seen the loading animation during this session
+  const [hasLoadedBefore] = useState(() => {
+    try {
+      return sessionStorage.getItem('hasSeenLoading') === 'true';
+    } catch {
+      return false;
+    }
+  });
+
   const [isAnimating, setIsAnimating] = useState(false);
-  const [isFinished, setIsFinished] = useState(false);
+  const [isFinished, setIsFinished] = useState(hasLoadedBefore);
 
   useEffect(() => {
+    if (hasLoadedBefore) return;
+
+    // Mark as seen in sessionStorage so returning to Home or navigating routes skips it
+    try {
+      sessionStorage.setItem('hasSeenLoading', 'true');
+    } catch {
+      // fallback
+    }
+
     // Disable scroll while loading animation plays
     document.body.style.overflow = 'hidden';
 
@@ -25,7 +43,7 @@ export default function LoadingScreen() {
       clearTimeout(finishTimer);
       document.body.style.overflow = '';
     };
-  }, []);
+  }, [hasLoadedBefore]);
 
   if (isFinished) return null;
 
@@ -41,3 +59,4 @@ export default function LoadingScreen() {
     </div>
   );
 }
+
