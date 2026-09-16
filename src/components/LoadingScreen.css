@@ -1,0 +1,57 @@
+.loading-screen-container {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  pointer-events: auto;
+  overflow: hidden;
+  background: transparent;
+}
+
+.loading-image-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: auto;
+  display: flex;
+  align-items: center;
+  /* Initial state: Shift image left so girl (~31.5% of PNG width) is off-screen to the left,
+     and only the white lotus logo + name panel fills the viewport */
+  transform: translateX(-31.5%);
+  will-change: transform;
+}
+
+/* White extension on the right side of the image so ultra-wide displays remain solid white */
+.loading-image-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 99%;
+  width: 120vw;
+  height: 100%;
+  background: #ffffff;
+}
+
+.loading-image {
+  height: 100vh;
+  width: auto;
+  max-width: none;
+  object-fit: cover;
+  object-position: right center;
+  display: block;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Smooth curtain slide to the right over 2 seconds with cubic-bezier(0.76, 0, 0.24, 1) */
+.loading-screen-container.slide-right .loading-image-wrapper {
+  transform: translateX(120vw);
+  transition: transform 2s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+/* Responsive fine-tuning for smaller screens */
+@media (max-width: 768px) {
+  .loading-image-wrapper {
+    transform: translateX(-33%);
+  }
+}

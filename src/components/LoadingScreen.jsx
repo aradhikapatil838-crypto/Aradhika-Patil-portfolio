@@ -1,0 +1,43 @@
+import React, { useState, useEffect } from 'react';
+import './LoadingScreen.css';
+
+export default function LoadingScreen() {
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [isFinished, setIsFinished] = useState(false);
+
+  useEffect(() => {
+    // Disable scroll while loading animation plays
+    document.body.style.overflow = 'hidden';
+
+    // 1. Hold initial state (logo visible) for 1 second
+    const holdTimer = setTimeout(() => {
+      setIsAnimating(true);
+    }, 1000);
+
+    // 2. Complete animation after 3.1 seconds (1s hold + 2s slide)
+    const finishTimer = setTimeout(() => {
+      setIsFinished(true);
+      document.body.style.overflow = '';
+    }, 3100);
+
+    return () => {
+      clearTimeout(holdTimer);
+      clearTimeout(finishTimer);
+      document.body.style.overflow = '';
+    };
+  }, []);
+
+  if (isFinished) return null;
+
+  return (
+    <div className={`loading-screen-container ${isAnimating ? 'slide-right' : ''}`}>
+      <div className="loading-image-wrapper">
+        <img
+          src="/loading-2.png"
+          alt="Aradhika Patil Loading"
+          className="loading-image"
+        />
+      </div>
+    </div>
+  );
+}
