@@ -487,13 +487,17 @@ body {
    the way paper bends instead of pivoting like a flat door.
    ===================================================================== */
 const Q=new URLSearchParams(location.search);
-/* About Me Sketchbook Spreads (4 visible spreads total, 3 page-flips total).
-   To replace spread images later, update the file names below. */
+const DIR='meng-to-sketchbook/';
 const PAGES=[
   {file:'page-1-aradhika.png',   title:"Hi, I'm Aradhika",          place:'UX Designer & Researcher'},
-  {file:'gardens-by-the-bay.png', title:'About Me — Spread 2',       place:'Sketchbook Spread 2'},
-  {file:'merlion.png',            title:'About Me — Spread 3',       place:'Sketchbook Spread 3'},
-  {file:'buddha-tooth.png',       title:'About Me — Spread 4',       place:'Sketchbook Spread 4'}
+  {file:'gardens-by-the-bay.png', title:'Gardens by the Bay',        place:'Supertree Grove'},
+  {file:'merlion.png',            title:'The Merlion',               place:'Merlion Park'},
+  {file:'buddha-tooth.png',       title:'Buddha Tooth Relic Temple', place:'Chinatown'},
+  {file:'joo-chiat.png',          title:'Joo Chiat Shophouses',      place:'Katong'},
+  {file:'lau-pa-sat.png',         title:'Lau Pa Sat',                place:'Raffles Quay'},
+  {file:'marina-bay-skyline.png', title:'Marina Bay Skyline',        place:'The Bay'},
+  {file:'singapore-river.png',    title:'Singapore River',           place:'Boat Quay'},
+  {file:'botanic-gardens.png',    title:'Botanic Gardens',           place:'Tanglin'}
 ];
 PAGES.forEach(p=>p.url=DIR+p.file);
 const M=PAGES.length, LAND=6;
@@ -595,32 +599,8 @@ function paint(){
   layout();
   caption();
   marks();
-  updateNavArrows();
   if(typeof syncZoomLayer==='function')syncZoomLayer();
   if(typeof placeLoupe==='function')placeLoupe();
-}
-function updateNavArrows(){
-  const leftBtn = document.getElementById('sbLeft');
-  const rightBtn = document.getElementById('sbRight');
-  const active = turn ? turn.to : idx;
-  if(leftBtn){
-    if(active <= 0){
-      leftBtn.style.display = 'none';
-      leftBtn.style.pointerEvents = 'none';
-    }else{
-      leftBtn.style.display = 'inline-flex';
-      leftBtn.style.pointerEvents = 'auto';
-    }
-  }
-  if(rightBtn){
-    if(active >= PAGES.length - 1){
-      rightBtn.style.display = 'none';
-      rightBtn.style.pointerEvents = 'none';
-    }else{
-      rightBtn.style.display = 'inline-flex';
-      rightBtn.style.pointerEvents = 'auto';
-    }
-  }
 }
 function caption(){
   capBox.textContent='';
@@ -751,11 +731,9 @@ stage.addEventListener('pointerdown',e=>{
   const onBook=e.target.closest('.sb-zone');
   stage.setPointerCapture(e.pointerId);
   hideHint();
-  if(!onBook||(typeof introOn!=='undefined'&&introOn))return;
+  if(!onBook||introOn)return;
   const r=bookRect();
   const dir=(e.clientX-r.left)/r.width>0.5?'next':'prev';
-  if(dir==='next' && idx>=PAGES.length-1) return;
-  if(dir==='prev' && idx<=0) return;
   startTurn(dir,0);
   drag={dir:dir,x0:e.clientX,w:r.width,moved:0,vel:0,tPrev:performance.now()};
 });
@@ -789,12 +767,9 @@ stage.addEventListener('pointercancel',endDrag);
 function startTurn(dir,t){
   spring=null;
   if(turn){idx=turn.to;turn=null;}      /* settle anything still in flight */
-  const from=idx;
-  if(dir==='next' && from>=PAGES.length-1) return;
-  if(dir==='prev' && from<=0) return;
   if(typeof shoveLoupe==='function')shoveLoupe(dir);
-  const to = dir==='next' ? from + 1 : from - 1;
-  turn={dir:dir,from:from,to:to,t:t||0};
+  const from=idx;
+  turn={dir:dir,from:from,to:dir==='next'?(from+1)%M:(from-1+M)%M,t:t||0};
   paint();
 }
 function commit(){
@@ -809,19 +784,17 @@ function cancel(){
   kick();
 }
 function step(dir){
-  if(typeof introOn!=='undefined'&&introOn)endIntro();
+  if(introOn)endIntro();
   if(turn){ /* finish whatever is in flight first */ idx=turn.to;turn=null; }
-  if(dir==='next' && idx>=PAGES.length-1) return;
-  if(dir==='prev' && idx<=0) return;
   startTurn(dir,0);commit();
 }
 function goTo(i){
-  if(typeof introOn!=='undefined'&&introOn)endIntro();
+  if(introOn)endIntro();
   if(i===idx)return;
   if(turn){idx=turn.to;turn=null;}
-  const target = Math.max(0, Math.min(PAGES.length - 1, i));
-  if(Math.abs(target - idx)===1){step(target > idx ?'next':'prev');return;}
-  idx=target;paint();
+  const fwd=(i-idx+M)%M, back=(idx-i+M)%M;
+  if(Math.min(fwd,back)===1){step(fwd===1?'next':'prev');return;}
+  idx=i;paint();
 }
 document.getElementById('sbLeft').onclick=()=>step('prev');
 document.getElementById('sbRight').onclick=()=>step('next');
@@ -831,10 +804,7 @@ addEventListener('keydown',e=>{
   const t=e.target;
   if(t&&(t.tagName==='INPUT'||t.tagName==='TEXTAREA'||t.isContentEditable))return;
   e.preventDefault();hideHint();
-  const dir = e.key==='ArrowRight'?'next':'prev';
-  if(dir==='next' && idx>=PAGES.length-1) return;
-  if(dir==='prev' && idx<=0) return;
-  step(dir);
+  step(e.key==='ArrowRight'?'next':'prev');
 });
 document.getElementById('heroDown').onclick=()=>{
   document.getElementById('about').scrollIntoView({behavior:'smooth',block:'start'});
