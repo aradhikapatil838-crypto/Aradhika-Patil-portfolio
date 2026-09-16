@@ -1,6 +1,119 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 
+// 3 Organic SVG Petal Variations matching the hero artwork flower palette
+const PetalSVG1 = ({ fill = '#F7B5C8', stroke = '#E690A8' }) => (
+  <svg viewBox="0 0 24 24" className="w-full h-full drop-shadow-[0_1px_2px_rgba(0,0,0,0.06)]">
+    <path
+      d="M12 2C8 2 4 6 4 12C4 17 8 22 13 22C18 22 21 16 20 10C19 5 15 2 12 2Z"
+      fill={fill}
+      stroke={stroke}
+      strokeWidth="0.5"
+      strokeLinecap="round"
+    />
+    <path d="M12 4C11.5 8 11.5 14 13 18" stroke={stroke} strokeWidth="0.5" strokeOpacity="0.45" fill="none" />
+  </svg>
+);
+
+const PetalSVG2 = ({ fill = '#F4A6BC', stroke = '#DF7E99' }) => (
+  <svg viewBox="0 0 24 24" className="w-full h-full drop-shadow-[0_1px_2px_rgba(0,0,0,0.06)]">
+    <path
+      d="M11 2C6 3 3 8 3 13C3 18 7 21 12 21C17 21 21 17 21 11C21 6 16 1 11 2Z"
+      fill={fill}
+      stroke={stroke}
+      strokeWidth="0.5"
+    />
+    <path d="M11 3C11 8 11 13 12 18" stroke={stroke} strokeWidth="0.5" strokeOpacity="0.45" fill="none" />
+  </svg>
+);
+
+const PetalSVG3 = ({ fill = '#FAC0CF', stroke = '#EA97AE' }) => (
+  <svg viewBox="0 0 24 24" className="w-full h-full drop-shadow-[0_1px_2px_rgba(0,0,0,0.06)]">
+    <path
+      d="M12 2C9 3 5 7 5 12C5 16 8 20 13 20C17 20 20 16 20 11C20 6 16 1 12 2Z"
+      fill={fill}
+      stroke={stroke}
+      strokeWidth="0.5"
+    />
+    <path d="M12 4C11.5 8 12 13 13 17" stroke={stroke} strokeWidth="0.5" strokeOpacity="0.45" fill="none" />
+  </svg>
+);
+
+const PETALS = [
+  {
+    id: 1,
+    size: 15,
+    left: '-4%',
+    top: '-6%',
+    duration: '11s',
+    delay: '0s',
+    blur: '0px',
+    opacity: 0.85,
+    animation: 'petalDrift1',
+    Shape: PetalSVG1,
+  },
+  {
+    id: 2,
+    size: 10,
+    left: '12%',
+    top: '-10%',
+    duration: '13.5s',
+    delay: '2.5s',
+    blur: '0.8px',
+    opacity: 0.7,
+    animation: 'petalDrift2',
+    Shape: PetalSVG2,
+  },
+  {
+    id: 3,
+    size: 18,
+    left: '-8%',
+    top: '15%',
+    duration: '9.5s',
+    delay: '4.8s',
+    blur: '0px',
+    opacity: 0.9,
+    animation: 'petalDrift3',
+    Shape: PetalSVG3,
+  },
+  {
+    id: 4,
+    size: 9,
+    left: '26%',
+    top: '-8%',
+    duration: '12s',
+    delay: '1.2s',
+    blur: '1.2px',
+    opacity: 0.6,
+    animation: 'petalDrift1',
+    Shape: PetalSVG2,
+  },
+  {
+    id: 5,
+    size: 16,
+    left: '-6%',
+    top: '30%',
+    duration: '10.5s',
+    delay: '6.2s',
+    blur: '0.4px',
+    opacity: 0.8,
+    animation: 'petalDrift2',
+    Shape: PetalSVG1,
+  },
+  {
+    id: 6,
+    size: 12,
+    left: '6%',
+    top: '-4%',
+    duration: '14s',
+    delay: '8s',
+    blur: '0px',
+    opacity: 0.75,
+    animation: 'petalDrift3',
+    Shape: PetalSVG3,
+  },
+];
+
 export default function Hero() {
   return (
     <section className="relative w-full overflow-hidden bg-[#7EAEC3] min-h-[560px] sm:min-h-[640px] lg:min-h-[720px] flex items-center pt-24 sm:pt-28 pb-10 sm:pb-14">
@@ -10,6 +123,34 @@ export default function Hero() {
         alt="Aradhika Patil Hero Artwork"
         className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none select-none"
       />
+
+      {/* Gentle Floating Pink Petals Animation Layer */}
+      <div
+        className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-[5]"
+        aria-hidden="true"
+      >
+        {PETALS.map((petal) => {
+          const ShapeComponent = petal.Shape;
+          return (
+            <div
+              key={petal.id}
+              className="hero-petal absolute pointer-events-none will-change-transform"
+              style={{
+                width: `${petal.size}px`,
+                height: `${petal.size * 1.15}px`,
+                left: petal.left,
+                top: petal.top,
+                filter: petal.blur !== '0px' ? `blur(${petal.blur})` : 'none',
+                opacity: petal.opacity,
+                animation: `${petal.animation} ${petal.duration} cubic-bezier(0.37, 0, 0.63, 1) infinite`,
+                animationDelay: petal.delay,
+              }}
+            >
+              <ShapeComponent />
+            </div>
+          );
+        })}
+      </div>
 
       {/* Overlaid Content Area */}
       <div className="max-w-7xl w-full mx-auto px-6 sm:px-12 md:px-16 relative z-10">
@@ -73,6 +214,7 @@ export default function Hero() {
     </section>
   );
 }
+
 
 
 

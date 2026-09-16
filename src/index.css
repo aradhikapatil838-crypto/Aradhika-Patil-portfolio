@@ -235,3 +235,80 @@ body {
 .flip-image-back {
   transform: rotateX(180deg);
 }
+
+/* Hero Section - Drifting Pink Petal Keyframes */
+@keyframes petalDrift1 {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.85;
+  }
+  30% {
+    transform: translate3d(28vw, 28vh, 0) rotate(90deg) scale(1.04);
+  }
+  60% {
+    transform: translate3d(58vw, 60vh, 0) rotate(190deg) scale(0.96);
+  }
+  85% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translate3d(96vw, 108vh, 0) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes petalDrift2 {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  35% {
+    transform: translate3d(32vw, 24vh, 0) rotate(-80deg) scale(0.94);
+  }
+  65% {
+    transform: translate3d(62vw, 58vh, 0) rotate(-180deg) scale(1.05);
+  }
+  88% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate3d(102vw, 110vh, 0) rotate(-340deg);
+    opacity: 0;
+  }
+}
+
+@keyframes petalDrift3 {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.9;
+  }
+  40% {
+    transform: translate3d(38vw, 40vh, 0) rotate(120deg) scale(1.03);
+  }
+  75% {
+    transform: translate3d(70vw, 75vh, 0) rotate(240deg) scale(0.97);
+  }
+  90% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate3d(98vw, 108vh, 0) rotate(340deg);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-petal {
+    animation: none !important;
+    display: none !important;
+  }
+}
