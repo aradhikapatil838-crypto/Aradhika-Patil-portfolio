@@ -20,10 +20,14 @@ export default function Hero() {
             Hi, I am
           </p>
 
-          {/* 1. Large Aradhika Patil Display Name Heading (Cormorant Garamond Serif) */}
-          <h1 className="heading-editorial-h1 text-[#0C2B3A] mb-4 sm:mb-6">
-            Aradhika Patil
-          </h1>
+          {/* 1. Large Aradhika Patil Display Name Graphic */}
+          <div className="mb-3 sm:mb-4 lg:mb-5">
+            <img
+              src="/My name is ara patil.png"
+              alt="Aradhika Patil"
+              className="w-full max-w-[300px] sm:max-w-[440px] md:max-w-[520px] lg:max-w-[580px] xl:max-w-[620px] h-auto object-contain pointer-events-none select-none drop-shadow-sm -ml-1 sm:-ml-2"
+            />
+          </div>
 
           {/* 3. Subtitle / Bio Paragraph */}
           <p className="font-sans-body text-base sm:text-lg lg:text-xl text-[#164359] font-normal leading-[1.7] max-w-md sm:max-w-xl mb-8 sm:mb-10">
