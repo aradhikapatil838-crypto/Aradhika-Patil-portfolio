@@ -5,9 +5,28 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@keyframes heroWave {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-hero-wave {
+  animation: heroWave 7.5s linear infinite;
+  will-change: transform;
+}
+
 body {
   margin: 0;
-  background-color: #f6f7f9;
+  background-color: #FAF8F5;
+  background-image: url('/portfolio-bg.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   color: #1f2937;
 }

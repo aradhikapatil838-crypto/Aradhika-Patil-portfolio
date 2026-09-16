@@ -9,32 +9,24 @@ export default function Nav() {
   ];
 
   return (
-    <nav className="flex items-center">
-      <div className="inline-flex items-center gap-4 sm:gap-8 px-6 py-2.5 bg-white/90 rounded-full shadow-[0_4px_20px_rgba(0,0,0,0.06)] border border-gray-100 relative">
-        {navItems.map((item) => (
-          <NavLink
-            key={item.name}
-            to={item.path}
-            end={item.path === '/'}
-            className={({ isActive }) =>
-              `relative px-2 py-1 text-sm font-medium transition-colors duration-200 ease-in-out cursor-pointer ${
-                isActive
-                  ? 'text-red-600 font-semibold'
-                  : 'text-gray-500 hover:text-gray-900'
-              }`
-            }
-          >
-            {({ isActive }) => (
-              <>
-                <span>{item.name}</span>
-                {isActive && (
-                  <span className="absolute -bottom-[11px] left-1/2 -translate-x-1/2 w-7 h-[4px] bg-red-600 rounded-full" />
-                )}
-              </>
-            )}
-          </NavLink>
-        ))}
-      </div>
+    <nav className="flex items-center gap-6 sm:gap-10">
+      {navItems.map((item) => (
+        <NavLink
+          key={item.name}
+          to={item.path}
+          end={item.path === '/'}
+          className={({ isActive }) =>
+            `text-xs sm:text-sm font-medium transition-colors duration-150 py-1 relative ${
+              isActive
+                ? 'text-[#0C2B3A] font-semibold after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-[#0C2B3A]'
+                : 'text-[#164359]/80 hover:text-[#0C2B3A]'
+            }`
+          }
+        >
+          {item.name}
+        </NavLink>
+      ))}
     </nav>
   );
 }
+

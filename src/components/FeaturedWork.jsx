@@ -1,72 +1,119 @@
 import { Link } from 'react-router-dom';
+import { ArrowRight, ArrowUpRight } from 'lucide-react';
 
 export default function FeaturedWork() {
   const projects = [
     {
-      id: '01',
-      image: '/work/01.jpg',
-      title: 'OrbiCare — Managing Multiple Medicines',
-      description: 'Exploring how medication routines can feel simpler and more familiar for older adults.',
+      id: 'elderly-care',
+      image: '/elderly frame.png',
+      title: 'Managing Poly-Medication for Elderly Care',
+      description:
+        'A wellness app helping elderly users and caregivers manage multiple medications with ease  blending behavioral research with intuitive, trust-building design.',
+      categories: 'UX Research · Interaction Design · Branding',
+      link: '/work/elderly-medication',
+    },
+    {
+      id: 'vaaniq',
+      image: '/work/vaaniq-card.jpg',
+      title: 'Vaaniq AI',
+      description:
+        'An AI-driven conversational platform that turns customer voice interactions into structured, actionable business intelligence.',
+      categories: 'AI & Voice UX · Interface Design · Prototyping',
       link: '/work',
     },
     {
-      id: '02',
-      image: '/work/02.jpg',
-      title: 'Rethinking Group Ordering',
-      description: 'Exploring the coordination between shared orders, individual choices, and splitting the bill.',
+      id: 'group-dining',
+      image: '/work/group-dining-card.jpg',
+      title: 'Group Dining',
+      description:
+        'A streamlined group ordering experience for cafés and restaurants, eliminating split-bill friction and ordering delays.',
+      categories: 'UX Research · Service Design · Mobile App',
       link: '/work',
     },
     {
-      id: '03',
-      image: '/work/03.jpg',
-      title: 'Vaaniq — AI Communication Platform',
-      description: 'Designing conversational experiences across AI calling and WhatsApp automation.',
-      link: '/work',
-    },
-    {
-      id: '04',
-      image: '/work/04.jpg',
-      title: 'Redesigning SBI',
-      description: 'Reimagining everyday banking interactions to make them simpler, clearer, and easier to navigate.',
+      id: 'sbi-redesign',
+      image: '/work/sbi-card.jpg',
+      title: 'SBI Redesign',
+      description:
+        'Reimagining digital banking for millions of users with a focus on accessibility, visual clarity, and inclusive human-centered design.',
+      categories: 'Fintech UX · Accessibility · Systems Design',
       link: '/work',
     },
   ];
 
   return (
-    <section className="w-full py-16 px-6 max-w-7xl mx-auto">
-      <div className="space-y-10">
-        {/* Section Header */}
-        <div className="flex items-center justify-between">
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-gray-900">
-            Selected work
+    <section className="w-full bg-transparent pt-12 sm:pt-16 lg:pt-20 pb-0 px-0 relative overflow-hidden">
+      <div className="max-w-[1320px] mx-auto px-6 sm:px-10 lg:px-12 space-y-10 sm:space-y-14 lg:space-y-16">
+
+        {/* Section Header: "Selected work." */}
+        <div className="flex items-end justify-between border-b border-stone-200/60 pb-6">
+          <h2
+            className="text-4xl sm:text-5xl lg:text-6xl text-[#0C2B3A] font-normal tracking-tight"
+            style={{ fontFamily: "'Elsie Swash Caps', 'Elsie', 'Playfair Display', serif" }}
+          >
+            Selected work<span className="text-[#0C2B3A]">.</span>
           </h2>
+
+          <Link
+            to="/work"
+            className="text-xs sm:text-sm font-medium text-[#0C2B3A] hover:text-[#164359] flex items-center gap-1.5 transition-colors group cursor-pointer"
+          >
+            <span>View all</span>
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </Link>
         </div>
 
-        {/* Project Cards Grid (2x2 on Desktop, 1 column on Mobile) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10">
+        {/* Large Horizontal Project Cards Stack (One Project Per Row) */}
+        <div className="flex flex-col space-y-10 sm:space-y-12 lg:space-y-14 pb-12 sm:pb-16">
           {projects.map((project) => (
             <Link
               key={project.id}
               to={project.link}
-              className="group block bg-white rounded-2xl border border-gray-200/80 overflow-hidden shadow-none hover:-translate-y-1.5 hover:shadow-xl hover:shadow-gray-200/70 hover:border-gray-300 active:scale-[0.98] active:translate-y-0 transition-all duration-300 ease-out cursor-pointer"
+              className="group block w-full bg-white rounded-3xl sm:rounded-[32px] border border-stone-200/80 shadow-[0_4px_20px_rgba(0,0,0,0.025)] hover:shadow-xl hover:-translate-y-1.5 active:scale-[0.995] transition-all duration-300 ease-out cursor-pointer overflow-hidden"
             >
-              {/* Card Screenshot Container */}
-              <div className="w-full aspect-[16/10] bg-gray-100 overflow-hidden relative">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500 ease-out"
-                />
-              </div>
+              <div className="flex flex-col lg:flex-row items-stretch min-h-[380px] lg:min-h-[420px]">
 
-              {/* Card Text Content */}
-              <div className="p-6 sm:p-7 space-y-2">
-                <h3 className="text-xl font-bold text-gray-900 group-hover:text-red-600 transition-colors duration-200">
-                  {project.title}
-                </h3>
-                <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-                  {project.description}
-                </p>
+                {/* LEFT SIDE: Project Information (50% width on desktop) */}
+                <div className="w-full lg:w-[50%] p-8 sm:p-10 lg:p-12 xl:p-14 flex flex-col justify-between space-y-6">
+
+                  {/* Title & Description Container */}
+                  <div className="space-y-4 sm:space-y-5">
+                    {/* Project Title */}
+                    <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#0C2B3A] tracking-tight leading-[1.2] group-hover:text-[#164359] transition-colors duration-200">
+                      {project.title}
+                    </h3>
+
+                    {/* Short Description */}
+                    <p className="text-sm sm:text-base lg:text-lg text-[#164359]/80 font-normal leading-relaxed max-w-xl">
+                      {project.description}
+                    </p>
+                  </div>
+
+                  {/* Bottom: Categories / Tags & View Link */}
+                  <div className="pt-6 sm:pt-8 border-t border-stone-200/50 flex flex-wrap items-center justify-between gap-4">
+                    <p className="text-xs sm:text-sm font-semibold tracking-wider text-[#1B4054]/70 uppercase">
+                      {project.categories}
+                    </p>
+
+                    <span className="inline-flex items-center gap-1 text-xs sm:text-sm font-medium text-[#0C2B3A] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200 shrink-0">
+                      <span>View project</span>
+                      <ArrowUpRight className="w-4 h-4" />
+                    </span>
+                  </div>
+
+                </div>
+
+                {/* RIGHT SIDE: Illustration (50% width on desktop) */}
+                <div className="w-full lg:w-[50%] bg-white p-3 sm:p-5 lg:p-6 flex items-center justify-center relative overflow-hidden">
+                  <div className="w-full h-full min-h-[300px] sm:min-h-[360px] lg:min-h-[420px] max-h-[520px] flex items-center justify-center relative">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full max-h-[480px] lg:max-h-[500px] object-contain object-center group-hover:scale-[1.02] transition-transform duration-500 ease-out"
+                    />
+                  </div>
+                </div>
+
               </div>
             </Link>
           ))}

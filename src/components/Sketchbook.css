@@ -1,0 +1,59 @@
+.sketchbook-wrapper {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.sketchbook-iframe-container {
+  width: 100%;
+  height: 980px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 16px;
+}
+
+.sketchbook-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+  pointer-events: auto;
+}
+
+/* Large desktop screens */
+@media (min-width: 1440px) {
+  .sketchbook-iframe-container {
+    height: 1050px;
+  }
+}
+
+/* Medium desktop / Laptop */
+@media (max-width: 1280px) {
+  .sketchbook-iframe-container {
+    height: 880px;
+  }
+}
+
+/* Tablet responsiveness */
+@media (max-width: 1024px) {
+  .sketchbook-iframe-container {
+    height: 720px;
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 640px) {
+  .sketchbook-iframe-container {
+    height: 540px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sketchbook-iframe-container {
+    height: 440px;
+  }
+}

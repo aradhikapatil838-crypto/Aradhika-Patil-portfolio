@@ -1,42 +1,78 @@
 import { Link } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
+import { ArrowRight } from 'lucide-react';
 
 export default function Hero() {
   return (
-    <section className="w-full min-h-[calc(100vh-80px)] flex items-center justify-center py-8 md:py-12 px-6">
-      <div className="max-w-7xl w-full mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-center">
-        {/* Left Column: Text & Call to Action */}
-        <div className="flex flex-col items-start justify-center space-y-6 md:space-y-8 text-left">
-          <div className="space-y-4">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-gray-900 leading-[1.15]">
-              I design around how people <span className="text-red-600">think, feel,</span> and <span className="text-red-600">behave.</span>
-            </h1>
-            <p className="text-lg sm:text-xl text-gray-600 font-medium tracking-wide">
-              Designing, observing, learning.
-            </p>
-          </div>
+    <section className="relative w-full overflow-hidden bg-[#7EAEC3] min-h-[560px] sm:min-h-[640px] lg:min-h-[720px] flex items-center pt-24 sm:pt-28 pb-10 sm:pb-14">
+      {/* Full Artwork Image filling the entire Hero background */}
+      <img
+        src="/port-figma-svg.jpg?v=6"
+        alt="Aradhika Patil Hero Artwork"
+        className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none select-none"
+      />
 
-          <div>
-            <Button
-              asChild
-              className="bg-red-600 text-white hover:bg-red-700 font-semibold px-7 py-3.5 rounded-full text-base shadow-md hover:shadow-lg hover:-translate-y-0.5 active:scale-95 transition-all duration-200 cursor-pointer"
-            >
-              <Link to="/work">See selected work</Link>
-            </Button>
-          </div>
-        </div>
+      {/* Overlaid Content Area */}
+      <div className="max-w-7xl w-full mx-auto px-6 sm:px-12 md:px-16 relative z-10">
+        <div className="max-w-md sm:max-w-xl md:max-w-2xl lg:max-w-3xl text-left pt-2 sm:pt-6">
 
-        {/* Right Column: Hero Image */}
-        <div className="w-full flex justify-center md:justify-end">
-          <div className="w-full max-w-md lg:max-w-lg aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border border-gray-100/80 group">
+          {/* Greeting Header */}
+          <p className="text-base sm:text-lg md:text-xl font-medium text-[#1B4054] mb-1 sm:mb-1.5 tracking-wide">
+            Hi, I am
+          </p>
+
+          {/* 1. Large Aradhika Patil Display Name Graphic */}
+          <div className="mb-3 sm:mb-4 lg:mb-5">
             <img
-              src="/hero.jpg"
-              alt="Aradhika Patil - Designer"
-              className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+              src="/My name is ara patil.png"
+              alt="Aradhika Patil"
+              className="w-full max-w-[300px] sm:max-w-[440px] md:max-w-[520px] lg:max-w-[580px] xl:max-w-[620px] h-auto object-contain pointer-events-none select-none drop-shadow-sm -ml-1 sm:-ml-2"
             />
           </div>
+
+          {/* 3. Subtitle / Bio Paragraph */}
+          <p className="text-sm sm:text-base md:text-lg text-[#164359] font-normal leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg mb-6 sm:mb-8">
+            A UX Designer living at the intersection of psychology and design.
+            My favorite pastime? Overthinking why do people behave the way they do.
+          </p>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-wrap items-center gap-3 sm:gap-4">
+            <Link
+              to="/work"
+              className="bg-[#0C2B3A] text-white hover:bg-[#164359] font-medium px-6 sm:px-7 py-3 rounded-full text-xs sm:text-sm transition-all duration-200 cursor-pointer inline-flex items-center gap-2 group shadow-sm"
+            >
+              <span>View my work</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+
+            <Link
+              to="/about"
+              className="bg-transparent border border-[#0C2B3A]/40 text-[#0C2B3A] hover:bg-[#0C2B3A]/10 font-medium px-6 sm:px-7 py-3 rounded-full text-xs sm:text-sm transition-all duration-200 cursor-pointer inline-flex items-center"
+            >
+              About me
+            </Link>
+          </div>
+
         </div>
+      </div>
+
+      {/* Single Smooth Animated Cream Wave at Bottom of Hero */}
+      <div className="absolute bottom-0 left-0 right-0 w-full overflow-hidden leading-none z-20 pointer-events-none h-9 sm:h-12 lg:h-14">
+        <svg
+          className="relative block w-[200%] h-full animate-hero-wave"
+          viewBox="0 0 2400 120"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+        >
+          <path
+            d="M 0,40 C 300,85 600,5 900,60 C 1050,85 1200,40 1200,40 C 1500,85 1800,5 2100,60 C 2250,85 2400,40 2400,40 L 2400,120 L 0,120 Z"
+            fill="#FCF5EF"
+          />
+        </svg>
       </div>
     </section>
   );
 }
+
+
+
