@@ -388,6 +388,13 @@ body {
 
 .foot{font-size:11.5px;letter-spacing:var(--track-caps);text-transform:uppercase;
   color:var(--ink-faint);text-align:center;padding-bottom:44px}
+/* Flat illustrative notebook styling */
+.sb-cast{display:none}
+.sb-arrow{color:#466674}
+.loupe .ring{background:transparent;box-shadow:0 2px 0 #b5ab99;border:2px solid #466674;touch-action:none}
+.loupe .lens{box-shadow:none;background:transparent}
+.loupe .grip{touch-action:none}
+.loupe:not(.on) .ring,.loupe:not(.on) .grip{pointer-events:none}
 </style>
 </head>
 <body>
@@ -489,18 +496,12 @@ body {
 const Q=new URLSearchParams(location.search);
 const DIR='meng-to-sketchbook/';
 const PAGES=[
-  {file:'page-1-aradhika.png',   title:"Hi, I'm Aradhika",          place:'UX Designer & Researcher'},
-  {file:'gardens-by-the-bay.png', title:'Gardens by the Bay',        place:'Supertree Grove'},
-  {file:'merlion.png',            title:'The Merlion',               place:'Merlion Park'},
-  {file:'buddha-tooth.png',       title:'Buddha Tooth Relic Temple', place:'Chinatown'},
-  {file:'joo-chiat.png',          title:'Joo Chiat Shophouses',      place:'Katong'},
-  {file:'lau-pa-sat.png',         title:'Lau Pa Sat',                place:'Raffles Quay'},
-  {file:'marina-bay-skyline.png', title:'Marina Bay Skyline',        place:'The Bay'},
-  {file:'singapore-river.png',    title:'Singapore River',           place:'Boat Quay'},
-  {file:'botanic-gardens.png',    title:'Botanic Gardens',           place:'Tanglin'}
+  {file:'sketchbook-page-1.png', title:"Hi, I'm Aradhika", place:'Curiosity & everyday moments'},
+  {file:'sketchbook-page-2.png', title:'Painting my thoughts', place:'Art & expression'},
+  {file:'sketchbook-page-3.png', title:'By the sea', place:'Quiet moments'}
 ];
 PAGES.forEach(p=>p.url=DIR+p.file);
-const M=PAGES.length, LAND=6;
+const M=PAGES.length, LAND=0;
 
 const wrap=document.getElementById('sbWrap');
 const stage=document.getElementById('sbStage');
@@ -513,7 +514,7 @@ const REDUCED=matchMedia('(prefers-reduced-motion: reduce)').matches;
 /* ------------------------------------------------ the turning leaf */
 const N=18;            /* strips — enough for a smooth curve          */
 const SPAN=0.449;      /* gutter → outer page edge, as a fraction     */
-const BETA=0.60;       /* peak curl of the arc, radians              */
+const BETA=0.30;       /* peak curl of the arc, radians              */
 let idx=0, turn=null;  /* turn = {dir, from, to, t}                   */
 let strips=[];         /* the chain, kept for per-frame lighting       */
 
@@ -670,7 +671,7 @@ function tick(now){
 function kick(){ if(raf===null){last=performance.now();raf=requestAnimationFrame(tick);} }
 
 /* ------------------------------------------- tilt + zoom of the book */
-const TILT_X=4.5, TILT_Y=7;      /* degrees — deliberately restrained   */
+const TILT_X=0, TILT_Y=0;      /* degrees — deliberately restrained   */
 const ZOOM_MIN=0.9, ZOOM_MAX=1.5;
 const view={rx:0,ry:0,z:1, trx:0,try_:0,tz:1};
 let viewActive=false;
@@ -726,6 +727,8 @@ function bookRect(){return book.getBoundingClientRect()}
 function hideHint(){hint.classList.add('gone')}
 
 stage.addEventListener('pointerdown',e=>{
+  // Leave arrow clicks with the button instead of capturing them for dragging.
+  if(e.target.closest('.sb-arrow'))return;
   if(e.button!==0)return;
   e.preventDefault();                     /* no text selection, no image drag */
   const onBook=e.target.closest('.sb-zone');
@@ -786,7 +789,9 @@ function cancel(){
 function step(dir){
   if(introOn)endIntro();
   if(turn){ /* finish whatever is in flight first */ idx=turn.to;turn=null; }
-  startTurn(dir,0);commit();
+  startTurn(dir,0);
+  if(REDUCED){commit();return;}
+  tweenTo(1,0.24,()=>{idx=turn.to;turn=null;paint();});
 }
 function goTo(i){
   if(introOn)endIntro();
@@ -830,7 +835,7 @@ function bookBox(){
 /* park it on the desk at the lower right, half off the book */
 function restLoupe(){
   const b=bookBox();
-  lx=b.x+b.w*0.88; ly=b.y+b.h*0.855;
+  lx=b.x+b.w*0.73; ly=b.y+b.h*0.60;
   placeLoupe();
 }
 /* The glass sits above the tilt, in the book's untransformed pixels, so the
@@ -983,8 +988,46 @@ function startIntro(){
   riffleStep();
 }
 
+
+// Render artwork over the notebook paper so full spreads, curl strips and
+// the magnifier all use the same layered page.
+async function prepareNotebookPages(){
+  const load=async src=>{const image=new Image();image.src=src;await image.decode();return image;};
+  const paper=await load(DIR+'singapore-river.png');
+  await Promise.all(PAGES.map(async page=>{
+    const art=await load(page.url);
+    const canvas=document.createElement('canvas');canvas.width=1760;canvas.height=1240;
+    const ctx=canvas.getContext('2d');
+    ctx.save();ctx.beginPath();ctx.roundRect(90,274,1578,692,44);ctx.clip();
+    // Reuse the unmarked upper paper band, including the original binding.
+    for(let y=274;y<966;y+=60)ctx.drawImage(paper,90,285,1578,60,90,y,1578,60);
+    ctx.restore();
+    // A light paper wash retains the grain while matching the site's flat palette.
+    ctx.save();ctx.beginPath();ctx.roundRect(90,274,1578,692,44);ctx.clip();
+    ctx.fillStyle='rgba(250,248,245,.48)';ctx.fillRect(90,274,1578,692);ctx.restore();
+    // Inked cover and page edges, drawn as gently imperfect curves.
+    ctx.strokeStyle='#466674';ctx.lineWidth=2.5;ctx.lineCap='round';ctx.lineJoin='round';
+    ctx.beginPath();ctx.moveTo(132,276);ctx.bezierCurveTo(370,267,670,279,880,277);
+    ctx.bezierCurveTo(1130,272,1420,278,1627,277);ctx.quadraticCurveTo(1667,278,1668,319);
+    ctx.lineTo(1666,923);ctx.quadraticCurveTo(1669,963,1625,965);
+    ctx.bezierCurveTo(1370,972,1110,963,880,968);ctx.bezierCurveTo(620,963,350,972,133,964);
+    ctx.quadraticCurveTo(91,962,91,923);ctx.lineTo(92,318);ctx.quadraticCurveTo(89,278,132,276);ctx.stroke();
+    ctx.strokeStyle='#b8b3a5';ctx.lineWidth=1.5;
+    for(let n=0;n<3;n++){ctx.beginPath();ctx.moveTo(130,973+n*5);ctx.quadraticCurveTo(495,979+n*5,880,975+n*5);ctx.quadraticCurveTo(1270,979+n*5,1634,973+n*5);ctx.stroke();}
+    ctx.strokeStyle='rgba(70,102,116,.35)';ctx.beginPath();ctx.moveTo(879,283);ctx.bezierCurveTo(875,485,885,770,880,961);ctx.stroke();
+    ctx.drawImage(art,228,294,1304,652);
+    // Small botanical margin marks echo the portfolio illustrations.
+    ctx.strokeStyle='#7e9b9b';ctx.lineWidth=2;
+    ctx.beginPath();ctx.moveTo(130,913);ctx.quadraticCurveTo(157,866,165,807);ctx.stroke();
+    for(let j=0;j<4;j++){let y=886-j*20,x=143+j*5;ctx.beginPath();ctx.moveTo(x,y);ctx.quadraticCurveTo(x-26,y-3,x-18,y-20);ctx.quadraticCurveTo(x-2,y-21,x,y);ctx.moveTo(x,y);ctx.quadraticCurveTo(x+28,y-15,x+24,y-30);ctx.quadraticCurveTo(x+4,y-27,x,y);ctx.stroke();}
+    ctx.strokeStyle='#b28560';ctx.beginPath();ctx.moveTo(1610,325);ctx.lineTo(1610,345);ctx.moveTo(1600,335);ctx.lineTo(1620,335);ctx.moveTo(1586,358);ctx.lineTo(1586,369);ctx.moveTo(1581,364);ctx.lineTo(1591,364);ctx.stroke();
+    page.url=canvas.toDataURL('image/png');
+  }));
+}
+
 /* ------------------------------------------------------------- boot */
 (async function boot(){
+  await prepareNotebookPages();
   idx=Q.has('shot')?(parseInt(Q.get('shot'),10)||0)%M:0;
   paint();applyView();
   await Promise.all(PAGES.map(p=>{
@@ -1003,3 +1046,5 @@ function startIntro(){
 </script>
 </body>
 </html>
+
+

@@ -57,3 +57,7 @@
     height: 440px;
   }
 }
+
+/* Trim the blank canvas around the notebook so it sits close to its heading. */
+.sketchbook-iframe-container{height:auto;aspect-ratio:1.9;border-radius:0}
+.sketchbook-iframe{position:absolute;top:-24%;left:0;width:100%;height:140%}

@@ -145,7 +145,7 @@ const PETALS = [
 
 export default function Hero() {
   return (
-    <section className="relative w-full overflow-hidden bg-[#7EAEC3] min-h-[560px] sm:min-h-[640px] lg:min-h-[720px] flex items-center pt-24 sm:pt-28 pb-10 sm:pb-14">
+    <section data-reveal-hero className="relative w-full overflow-hidden bg-[#7EAEC3] min-h-[560px] sm:min-h-[640px] lg:min-h-[720px] flex items-center pt-24 sm:pt-28 pb-10 sm:pb-14">
       {/* Full Artwork Image filling the entire Hero background */}
       <img
         src="/port-figma-svg.jpg?v=6"
@@ -153,6 +153,7 @@ export default function Hero() {
         className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none select-none"
       />
 
+      <div className="hero-reveal" aria-hidden="true"><img src="/hero-hover-large-lens.png" alt="" decoding="async" /></div>
       {/* Gentle Floating Pink Petals Layer */}
       <div
         className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-[5]"
@@ -207,7 +208,7 @@ export default function Hero() {
           <div className="flex flex-wrap items-center gap-3 sm:gap-4">
             <Link
               to="/work"
-              className="bg-[#0C2B3A] text-white hover:bg-[#164359] font-serif-editorial font-normal px-7 py-3 rounded-full text-base sm:text-lg tracking-wide transition-all duration-200 cursor-pointer inline-flex items-center gap-2 group shadow-sm"
+              aria-label="View my work" className="case-stamp-button group"
             >
               <span>View my work</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -215,10 +216,8 @@ export default function Hero() {
 
             <Link
               to="/about"
-              className="bg-transparent border border-[#0C2B3A]/40 text-[#0C2B3A] hover:bg-[#0C2B3A]/10 font-serif-editorial font-normal px-7 py-3 rounded-full text-base sm:text-lg tracking-wide transition-all duration-200 cursor-pointer inline-flex items-center"
-            >
-              About me
-            </Link>
+              aria-label="About me" className="case-stamp-button case-about-button"
+            ><span>About me</span></Link>
           </div>
 
         </div>
@@ -241,6 +240,9 @@ export default function Hero() {
     </section>
   );
 }
+
+
+
 
 
 

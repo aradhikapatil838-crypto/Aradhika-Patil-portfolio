@@ -1,0 +1,13 @@
+Merged portfolio
+
+Base: Aradhika Patil-portfolio.zip supplied by you.
+Preserved the updated elderly-care case study, including its numbered Current Scenario layout.
+Added the SBI case study with the elderly-style visual hierarchy and four-box solution overview.
+Updated only the SBI card destination in src/components/FeaturedWork.jsx.
+SBI page: public/work/sbi-redesign.html
+SBI local font: public/work/sbi-geist.woff2
+Original pasted content remains intact in the page, including expandable original content and notes.
+The dist folder is rebuilt from this merged source.
+GitHub upload is still pending connection.
+Removed the Adding a medicine section and every following section from the elderly case study, as requested.
+Added High-fidelity screens after The Solution, with Onboarding and Home screen images supplied by the user.

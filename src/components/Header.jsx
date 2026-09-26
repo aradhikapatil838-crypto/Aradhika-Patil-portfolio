@@ -4,7 +4,7 @@ import { ArrowUpRight } from 'lucide-react';
 
 export default function Header() {
   return (
-    <header className="sticky top-0 left-0 w-full z-50 backdrop-blur-md bg-stone-50/30 border-b border-stone-200/20 pt-4 sm:pt-5 pb-4 px-6 sm:px-12 md:px-16 transition-all duration-300">
+    <header className="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-stone-50/20 border-b border-stone-200/10 pt-4 sm:pt-5 pb-4 px-6 sm:px-12 md:px-16 transition-all duration-300">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Left Side: Logo */}
         <Link
@@ -34,5 +34,6 @@ export default function Header() {
     </header>
   );
 }
+
 
 
