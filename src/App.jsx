@@ -4,6 +4,7 @@ import Work from './pages/Work'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import ElderlyMedicationCaseStudy from './pages/ElderlyMedicationCaseStudy'
+import SbiRedesignCaseStudy from './pages/SbiRedesignCaseStudy'
 import './App.css'
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Route path="/work" element={<Work />} />
         <Route path="/work/elderly-medication" element={<ElderlyMedicationCaseStudy />} />
         <Route path="/work/orbicare" element={<ElderlyMedicationCaseStudy />} />
+        <Route path="/work/sbi-redesign" element={<SbiRedesignCaseStudy />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
