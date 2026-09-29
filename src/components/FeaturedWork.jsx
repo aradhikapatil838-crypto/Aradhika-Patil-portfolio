@@ -25,7 +25,7 @@ export default function FeaturedWork() {
   ];
 
   return (
-    <section className="featured-work-compact w-full bg-transparent pt-6 sm:pt-8 pb-0 px-0 relative overflow-hidden">
+    <section id="work" className="featured-work-compact w-full bg-transparent pt-6 sm:pt-8 pb-0 px-0 relative overflow-hidden">
       <RevealCursor />
       <div className="max-w-[1140px] mx-auto px-5 sm:px-8 lg:px-10 space-y-5 sm:space-y-6">
 

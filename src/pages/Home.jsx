@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import Hero from '../components/Hero';
 import FeaturedWork from '../components/FeaturedWork';
 import About from '../components/About';
+import SecretDecoderSection from '../components/SecretDecoderSection';
 import ContactSection from '../components/ContactSection';
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
       <Hero />
       <FeaturedWork />
       <About />
+      <SecretDecoderSection />
       <ContactSection />
     </div>
   );

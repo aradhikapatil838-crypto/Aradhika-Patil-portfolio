@@ -145,7 +145,7 @@ const PETALS = [
 
 export default function Hero() {
   return (
-    <section data-reveal-hero className="relative w-full overflow-hidden bg-[#7EAEC3] min-h-[560px] sm:min-h-[640px] lg:min-h-[720px] flex items-center pt-24 sm:pt-28 pb-10 sm:pb-14">
+    <section id="hero" data-reveal-hero className="relative w-full overflow-hidden bg-[#7EAEC3] min-h-[560px] sm:min-h-[640px] lg:min-h-[720px] flex items-center pt-24 sm:pt-28 pb-10 sm:pb-14">
       {/* Full Artwork Image filling the entire Hero background */}
       <img
         src="/port-figma-svg.jpg?v=6"

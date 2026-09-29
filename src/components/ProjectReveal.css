@@ -1,49 +1,307 @@
-.reveal-cursor{position:fixed;z-index:99999;width:14px;height:14px;border:1.5px solid #c63d43;border-radius:50%;background:#d8454c;transform:translate(-50%,-50%);pointer-events:none;opacity:0;transition:width .22s ease,height .22s ease,background .22s ease,opacity .12s ease;will-change:left,top}
-.reveal-cursor.visible{opacity:1}.reveal-cursor.expanded{width:168px;height:168px;background:rgba(214,47,57,.17);border:2px solid #cc3541}
-[data-reveal-card]{position:relative;--reveal-x:-200px;--reveal-y:-200px}
-.project-reveal{position:absolute;inset:0;z-index:4;pointer-events:none;clip-path:circle(0 at var(--reveal-x) var(--reveal-y));opacity:0;transition:opacity .18s ease;color:#a92d37}
-[data-revealing] .project-reveal{clip-path:circle(83px at var(--reveal-x) var(--reveal-y));opacity:1}
-.reveal-note{position:absolute;top:48px;left:14%;font:600 23px/1.15 'Cormorant Garamond',Georgia,serif;max-width:200px;transform:rotate(-7deg);padding:7px 12px;background:#fff4e6ed;border-radius:3px;border-bottom:2px solid #be5353}
-.reveal-doodle{position:absolute;width:32px;height:32px;animation:medicine-drift 2.5s ease-in-out infinite;animation-play-state:paused}.reveal-doodle svg{width:100%;height:100%;fill:#f5c4aa;stroke:#ad303b}
-[data-revealing] .reveal-doodle{animation-play-state:running}
-.doodle-0{left:6%;top:26%}.doodle-1{right:7%;top:19%;animation-delay:-.5s}.doodle-2{left:13%;top:48%;animation-delay:-1s}.doodle-3{right:15%;top:46%;animation-delay:-1.5s}.doodle-4{left:47%;top:55%;animation-delay:-2s}.doodle-5{right:30%;top:9%;animation-delay:-.8s}
-.reveal-heart{position:absolute;left:5%;top:15%;width:25px;fill:#edaaa6}.reveal-spark{position:absolute;right:5%;top:55%;width:28px}
-@keyframes medicine-drift{0%,100%{transform:translateY(-8px) rotate(-24deg)}50%{transform:translateY(12px) rotate(16deg)}}
-@media(hover:hover) and (pointer:fine){body.reveal-cursor-active,body.reveal-cursor-active *{cursor:none!important}}
-@media(hover:none),(pointer:coarse){.reveal-cursor,.project-reveal{display:none}}
-@media(prefers-reduced-motion:reduce){.reveal-cursor,.project-reveal{transition:none}.reveal-doodle{animation:none}}
-@media(forced-colors:active){.reveal-cursor,.project-reveal{display:none}body.reveal-cursor-active,body.reveal-cursor-active *{cursor:auto!important}}
-/* Compact cards: size the reveal around the content, not the other way around. */
-.featured-work-compact{--work-image-height:clamp(160px,26vh,220px)}
-.project-card-copy{position:relative;z-index:5;min-width:0}
-.featured-work-compact .project-card-image{height:var(--work-image-height);aspect-ratio:auto;margin-bottom:16px;flex-shrink:0}
-.featured-work-compact .project-card-copy h3{font-size:clamp(22px,2vw,28px);line-height:1.15}
-.featured-work-compact .project-card-copy:last-child{flex-wrap:wrap;row-gap:8px}
-.featured-work-compact .project-card-copy:last-child p{white-space:normal;flex:1 1 210px;max-width:100%;overflow-wrap:break-word}
-[data-reveal-card="elderly-care"] .project-card-copy{margin-left:6%;margin-right:6%}
-[data-reveal-card="elderly-care"] .project-card-copy:last-child{padding-bottom:20px}
-.project-reveal-artwork{display:flex;flex-direction:column}
-.reveal-art-top{height:calc(var(--work-image-height) + 24px);flex-shrink:0;overflow:hidden}
-.reveal-art-top img{display:block;width:100%;height:156.25%;object-fit:fill}
-.reveal-art-paper{position:relative;flex:1;overflow:hidden}
-.reveal-art-paper img{position:absolute;bottom:0;width:100%;height:277.778%;object-fit:fill}
-.project-link-label{display:grid}
-.project-link-label>span{grid-area:1/1}
-.project-link-investigate{visibility:hidden}
-[data-reveal-card]:hover .project-case-link,[data-reveal-card]:focus-visible .project-case-link{color:#c62832}
-[data-reveal-card]:hover .project-link-default,[data-reveal-card]:focus-visible .project-link-default{visibility:hidden}
-[data-reveal-card]:hover .project-link-investigate,[data-reveal-card]:focus-visible .project-link-investigate{visibility:visible}
+.reveal-cursor {
+  position: fixed;
+  z-index: 99999;
+  width: 0px;
+  height: 0px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0;
+  border-radius: 50%;
+  transition: width 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              height 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.15s ease;
+  will-change: left, top, width, height;
+}
+
+.reveal-cursor.visible {
+  opacity: 1;
+}
+
+.reveal-cursor.expanded {
+  width: 275px;
+  height: 275px;
+}
+
+.reveal-cursor.hero-expanded {
+  width: 280px;
+  height: 280px;
+}
+
+/* Glass Lens Outer Rim (Soft, Thin Refined Metallic/Glass Rim - NO RED) */
+.lens-rim {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 
+    0 0 0 1.2px rgba(16, 45, 59, 0.2),
+    inset 0 0 0 1px rgba(16, 45, 59, 0.1),
+    0 12px 32px -4px rgba(16, 45, 59, 0.28),
+    inset 0 2.5px 6px rgba(255, 255, 255, 0.75),
+    inset 0 -2.5px 6px rgba(16, 45, 59, 0.15);
+  background: transparent;
+  pointer-events: none;
+}
+
+/* Glass Surface with Light Cool/Blue Transparent Tint */
+.lens-glass {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  background: radial-gradient(
+    circle at 35% 30%,
+    rgba(240, 248, 255, 0.22) 0%,
+    rgba(220, 240, 255, 0.08) 55%,
+    rgba(180, 215, 240, 0.16) 100%
+  );
+  pointer-events: none;
+}
+
+/* Glass Reflective Glare & Edge Highlight */
+.lens-glare {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: 
+    radial-gradient(ellipse at 28% 22%, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 45%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.38) 0%, rgba(255, 255, 255, 0.06) 32%, rgba(255, 255, 255, 0) 60%);
+  pointer-events: none;
+}
+
+[data-reveal-card] {
+  position: relative;
+  --reveal-x: -200px;
+  --reveal-y: -200px;
+}
+
+.project-reveal {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  clip-path: circle(0 at var(--reveal-x) var(--reveal-y));
+  opacity: 0;
+  transition: opacity 0.18s ease;
+  color: #a92d37;
+  transform-origin: var(--reveal-x, 50%) var(--reveal-y, 50%);
+  transform: scale(1.15);
+  will-change: transform-origin, clip-path;
+}
+
+[data-revealing] .project-reveal {
+  clip-path: circle(137.5px at var(--reveal-x) var(--reveal-y));
+  opacity: 1;
+}
+
+.reveal-note {
+  position: absolute;
+  top: 48px;
+  left: 14%;
+  font: 600 23px/1.15 'Cormorant Garamond', Georgia, serif;
+  max-width: 200px;
+  transform: rotate(-7deg);
+  padding: 7px 12px;
+  background: #fff4e6ed;
+  border-radius: 3px;
+  border-bottom: 2px solid #be5353;
+}
+
+.reveal-doodle {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  animation: medicine-drift 2.5s ease-in-out infinite;
+  animation-play-state: paused;
+}
+
+.reveal-doodle svg {
+  width: 100%;
+  height: 100%;
+  fill: #f5c4aa;
+  stroke: #ad303b;
+}
+
+[data-revealing] .reveal-doodle {
+  animation-play-state: running;
+}
+
+.doodle-0 { left: 6%; top: 26%; }
+.doodle-1 { right: 7%; top: 19%; animation-delay: -.5s; }
+.doodle-2 { left: 13%; top: 48%; animation-delay: -1s; }
+.doodle-3 { right: 15%; top: 46%; animation-delay: -1.5s; }
+.doodle-4 { left: 47%; top: 55%; animation-delay: -2s; }
+.doodle-5 { right: 30%; top: 9%; animation-delay: -.8s; }
+
+.reveal-heart { position: absolute; left: 5%; top: 15%; width: 25px; fill: #edaaa6; }
+.reveal-spark { position: absolute; right: 5%; top: 55%; width: 28px; }
+
+@keyframes medicine-drift {
+  0%, 100% { transform: translateY(-8px) rotate(-24deg); }
+  50% { transform: translateY(12px) rotate(16deg); }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body.reveal-cursor-active, body.reveal-cursor-active * {
+    cursor: none !important;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .reveal-cursor, .project-reveal { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-cursor, .project-reveal { transition: none; }
+  .reveal-doodle { animation: none; }
+}
+
+@media (forced-colors: active) {
+  .reveal-cursor, .project-reveal { display: none; }
+  body.reveal-cursor-active, body.reveal-cursor-active * { cursor: auto !important; }
+}
+
+/* Compact cards styling */
+.featured-work-compact {
+  --work-image-height: clamp(160px, 26vh, 220px);
+}
+
+.project-card-copy {
+  position: relative;
+  z-index: 5;
+  min-width: 0;
+}
+
+.featured-work-compact .project-card-image {
+  height: var(--work-image-height);
+  aspect-ratio: auto;
+  margin-bottom: 16px;
+  flex-shrink: 0;
+}
+
+.featured-work-compact .project-card-copy h3 {
+  font-size: clamp(22px, 2vw, 28px);
+  line-height: 1.15;
+}
+
+.featured-work-compact .project-card-copy:last-child {
+  flex-wrap: wrap;
+  row-gap: 8px;
+}
+
+.featured-work-compact .project-card-copy:last-child p {
+  white-space: normal;
+  flex: 1 1 210px;
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+[data-reveal-card="elderly-care"] .project-card-copy {
+  margin-left: 6%;
+  margin-right: 6%;
+}
+
+[data-reveal-card="elderly-care"] .project-card-copy:last-child {
+  padding-bottom: 20px;
+}
+
+.project-reveal-artwork {
+  display: flex;
+  flex-direction: column;
+}
+
+.reveal-art-top {
+  height: calc(var(--work-image-height) + 24px);
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.reveal-art-top img {
+  display: block;
+  width: 100%;
+  height: 156.25%;
+  object-fit: fill;
+}
+
+.reveal-art-paper {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+}
+
+.reveal-art-paper img {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 277.778%;
+  object-fit: fill;
+}
+
+.project-link-label {
+  display: grid;
+}
+
+.project-link-label > span {
+  grid-area: 1 / 1;
+}
+
+.project-link-investigate {
+  visibility: hidden;
+}
+
+[data-reveal-card]:hover .project-case-link,
+[data-reveal-card]:focus-visible .project-case-link {
+  color: #c62832;
+}
+
+[data-reveal-card]:hover .project-link-default,
+[data-reveal-card]:focus-visible .project-link-default {
+  visibility: hidden;
+}
+
+[data-reveal-card]:hover .project-link-investigate,
+[data-reveal-card]:focus-visible .project-link-investigate {
+  visibility: visible;
+}
 
 [data-reveal-card]:hover .project-card-copy,
 [data-reveal-card]:hover .project-card-copy *,
 [data-reveal-card]:focus-visible .project-card-copy,
-[data-reveal-card]:focus-visible .project-card-copy *{font-family:'Aleo',Georgia,serif}
+[data-reveal-card]:focus-visible .project-card-copy * {
+  font-family: 'Aleo', Georgia, serif;
+}
 
-.reveal-cursor.hero-expanded{width:300px;height:300px;background:rgba(214,47,57,.08)}
-.hero-reveal{position:absolute;inset:0;z-index:6;pointer-events:none;overflow:hidden;background:#fb941f;clip-path:circle(0 at var(--reveal-x,-200px) var(--reveal-y,-200px));opacity:0}
-[data-reveal-hero][data-revealing] .hero-reveal{clip-path:circle(149px at var(--reveal-x) var(--reveal-y));opacity:1}
-.hero-reveal img{position:absolute;width:var(--hero-art-width);max-width:none;height:auto;left:var(--hero-art-left);top:var(--hero-art-top)}
-@media(hover:none),(pointer:coarse),(forced-colors:active){.hero-reveal{display:none}}
+.hero-reveal {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  pointer-events: none;
+  overflow: hidden;
+  background: transparent;
+  clip-path: circle(0 at var(--reveal-x, -200px) var(--reveal-y, -200px));
+  opacity: 0;
+  transition: opacity 0.18s ease;
+}
 
-/* Both hero layers use the same canvas, crop and positioning. */
-.hero-reveal img{inset:0;width:100%;height:100%;object-fit:cover;object-position:center;max-width:100%}
+[data-reveal-hero][data-revealing] .hero-reveal {
+  clip-path: circle(140px at var(--reveal-x) var(--reveal-y));
+  opacity: 1;
+}
+
+.hero-reveal img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  max-width: 100%;
+  transform-origin: var(--reveal-x, 50%) var(--reveal-y, 50%);
+  transform: scale(1.18);
+  will-change: transform-origin;
+}
+
+@media (hover: none), (pointer: coarse), (forced-colors: active) {
+  .hero-reveal { display: none; }
+}
+
