@@ -27,17 +27,17 @@ export default function LoadingScreen() {
     // Disable scroll while loading animation plays
     document.body.style.overflow = 'hidden';
 
-    // 1. Hold initial state (logo visible) for 0.5 seconds
+    // 1. Hold initial state (logo visible) for 0.8 seconds
     const holdTimer = setTimeout(() => {
       setIsAnimating(true);
       document.body.style.overflow = '';
-    }, 500);
+    }, 800);
 
-    // 2. Complete animation after 1.5 seconds (0.5s hold + 1s slide)
+    // 2. Complete animation after 3.3 seconds (0.8s hold + 2.5s slide)
     const finishTimer = setTimeout(() => {
       setIsFinished(true);
       document.body.style.overflow = '';
-    }, 1500);
+    }, 3300);
 
     return () => {
       clearTimeout(holdTimer);

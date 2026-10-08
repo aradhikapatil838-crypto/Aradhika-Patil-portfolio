@@ -1,6 +1,6 @@
 import { RevealCursor, ProjectReveal } from './ProjectReveal';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 
 export default function FeaturedWork() {
   const projects = [
@@ -15,7 +15,7 @@ export default function FeaturedWork() {
     },
     {
       id: 'sbi-redesign',
-      image: '/work/sbi-card.jpg',
+      image: '/sbi frame.png',
       title: 'SBI Redesign',
       description:
         'Reimagining digital banking for millions of users with a focus on accessibility, visual clarity, and inclusive human-centered design.',
@@ -34,14 +34,6 @@ export default function FeaturedWork() {
           <h2 className="heading-editorial-section text-[#0C2B3A]">
             Selected work<span className="text-[#0C2B3A]">.</span>
           </h2>
-
-          <Link
-            to="/work"
-            className="label-editorial text-[#0C2B3A] hover:text-[#164359] flex items-center gap-1.5 transition-colors group cursor-pointer"
-          >
-            <span>View all</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </Link>
         </div>
 
         {/* 2 x 2 Project Grid */}
