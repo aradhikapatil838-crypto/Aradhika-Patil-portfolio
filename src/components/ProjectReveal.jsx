@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
-import { Pill, Heart, Sparkles, MessageCircle, Utensils, ShieldCheck } from 'lucide-react';
+import { Pill, Heart, Sparkles, MessageCircle, Utensils, ShieldCheck, Bot } from 'lucide-react';
 import './ProjectReveal.css';
 
 export function RevealCursor() {
@@ -91,12 +91,13 @@ export function ProjectReveal({ project }) {
     </div>;
   }
   const content = {
+    'summer-internship': ['Designing AI Products for Businesses.', Bot],
     'elderly-care': ['the case of missing medicine', Pill],
     'vaaniq': ['Every voice tells a story.', MessageCircle],
     'group-dining': ['Good food. Better together.', Utensils],
     'sbi-redesign': ['Banking with confidence.', ShieldCheck],
   };
-  const [message, Icon] = content[project];
+  const [message, Icon] = content[project] || ['Designing AI Products for Businesses.', Bot];
   return <div className="project-reveal" aria-hidden="true">
     <span className="reveal-note">{message}</span>
     {[0, 1, 2, 3, 4, 5].map(i => <span key={i} className={`reveal-doodle doodle-${i}`}><Icon strokeWidth={1.6} /></span>)}

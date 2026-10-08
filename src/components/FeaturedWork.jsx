@@ -5,6 +5,15 @@ import { ArrowUpRight } from 'lucide-react';
 export default function FeaturedWork() {
   const projects = [
     {
+      id: 'summer-internship',
+      image: '/Internship Card.png',
+      title: 'Designing B2B AI Products — Summer Internship at Tierce India',
+      description:
+        'UI/UX Design Internship: End-to-end platform design for AI Calling Agent & WhatsApp Automation. Built a 60+ component design system, 80+ platform screens, 3 landing pages, and explainer motion graphics.',
+      categories: 'B2B AI Products · Design Systems · UX/UI Design · Motion Graphics',
+      link: '/work/summer-internship',
+    },
+    {
       id: 'elderly-care',
       image: '/elderly frame 1 flip.png',
       title: 'Simplifying Polypharmacy for Older Adults',
