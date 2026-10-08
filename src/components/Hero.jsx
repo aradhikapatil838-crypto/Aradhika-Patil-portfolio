@@ -206,18 +206,40 @@ export default function Hero() {
 
           {/* CTA Buttons */}
           <div className="flex flex-wrap items-center gap-3 sm:gap-4">
-            <Link
-              to="/work"
-              aria-label="View my work" className="case-stamp-button group"
+            <a
+              href="#work"
+              onClick={(e) => {
+                e.preventDefault();
+                const targetEl = document.getElementById('work');
+                if (targetEl) {
+                  const headerHeight = 76;
+                  const targetY = targetEl.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                  window.scrollTo({ top: targetY, behavior: 'smooth' });
+                }
+              }}
+              aria-label="View my work"
+              className="case-stamp-button group"
             >
               <span>View my work</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
+            </a>
 
-            <Link
-              to="/about"
-              aria-label="About me" className="case-stamp-button case-about-button"
-            ><span>About me</span></Link>
+            <a
+              href="#about"
+              onClick={(e) => {
+                e.preventDefault();
+                const targetEl = document.getElementById('about');
+                if (targetEl) {
+                  const headerHeight = 76;
+                  const targetY = targetEl.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                  window.scrollTo({ top: targetY, behavior: 'smooth' });
+                }
+              }}
+              aria-label="About me"
+              className="case-stamp-button case-about-button"
+            >
+              <span>About me</span>
+            </a>
           </div>
 
         </div>
