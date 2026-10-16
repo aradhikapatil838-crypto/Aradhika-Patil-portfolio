@@ -6,19 +6,19 @@
 <meta name="description" content="Aradhika Patil — working at the intersection of behaviour design and product design. Selected work, about me, and contact.">
 <style>
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#f2e6ec;color:#100b2c;font-family:Arial,sans-serif}.portfolio{position:relative;width:100%;max-width:1920px;margin:auto;line-height:0}.design{display:block;width:100%;height:auto}.hotspot{position:absolute;display:block;border:0;background:transparent;border-radius:2px;cursor:pointer}.hotspot{transition:background-color .2s ease,box-shadow .2s ease}.hotspot:not(.project-card)::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at center,rgba(255,255,255,.24),rgba(255,255,255,0) 72%);opacity:0;transition:opacity .2s ease}.hotspot:not(.project-card):hover::after{opacity:1}.project-card:hover{background-color:rgba(255,255,255,.08);box-shadow:0 5px 18px rgba(16,11,44,.12)}.hotspot:focus-visible{outline:3px solid #3b76c7;outline-offset:3px;background:#ffffff33}.anchor{position:absolute;left:0;width:1px;height:1px}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.skip:focus{position:fixed;z-index:10;top:10px;left:10px;width:auto;height:auto;clip:auto;background:white;padding:15px;line-height:1.4}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-</style>
+.sticky-nav{position:absolute;top:.73%;left:9.05%;width:81.9%;aspect-ratio:1180/80;overflow:hidden;z-index:100;background:#100b2c}.sticky-nav .nav-art{position:absolute;width:122.1001%;max-width:none;height:auto;left:-11.0508%;top:-50%;pointer-events:none}.sticky-nav.is-sticky{position:fixed;top:0;left:50%;transform:translateX(-50%);width:min(81.9%,1572.48px);box-shadow:0 3px 12px #100b2c18}.anchor{scroll-margin-top:90px}@media(max-width:600px){.anchor{scroll-margin-top:45px}}</style>
 </head>
 <body>
 <a href="#work" class="sr-only skip">Skip to selected work</a>
 <main class="portfolio" aria-label="Aradhika Patil portfolio">
 <img class="design" src="/portfolio-latest.jpg" width="2882" height="10931" alt="Aradhika Patil. Working at the intersection of behaviour design and product design. Portfolio featuring selected projects, an introduction, art, nature, writing, and contact details.">
 <h1 class="sr-only">Aradhika Patil</h1>
-<nav aria-label="Main navigation">
-<a class="hotspot" style="left:9.1%;top:.73%;width:9%;height:1.47%" href="#" aria-label="Back to top"></a>
-<a class="hotspot" style="left:28.5%;top:.73%;width:5%;height:1.47%" href="#work" aria-label="Work"></a>
-<a class="hotspot" style="left:35%;top:.73%;width:5.3%;height:1.47%" href="#about" aria-label="About"></a>
-<a class="hotspot" style="left:41.3%;top:.73%;width:6.5%;height:1.47%" href="#contact" aria-label="Contact"></a>
-<a class="hotspot" style="left:76%;top:.73%;width:10%;height:1.47%" href="/resume.html" aria-label="View Aradhika's résumé" title="View résumé"></a>
+<nav class="sticky-nav" aria-label="Main navigation"><img class="nav-art" src="/portfolio-latest.jpg" alt="" aria-hidden="true">
+<a class="hotspot" style="left:0.0611%;top:0;width:10.9890%;height:100%" href="#" aria-label="Back to top"></a>
+<a class="hotspot" style="left:23.7485%;top:0;width:6.1050%;height:100%" href="#work" aria-label="Work"></a>
+<a class="hotspot" style="left:31.6850%;top:0;width:6.4713%;height:100%" href="#about" aria-label="About"></a>
+<a class="hotspot" style="left:39.3773%;top:0;width:7.9365%;height:100%" href="#contact" aria-label="Contact"></a>
+<a class="hotspot" style="left:81.7460%;top:0;width:12.2100%;height:100%" href="/resume.html" aria-label="View Aradhika's résumé" title="View résumé"></a>
 </nav>
 <section aria-label="Selected work">
 <span class="anchor" id="work" style="top:16.35%"></span><h2 class="sr-only">Selected work</h2>
@@ -38,5 +38,5 @@
 <a class="hotspot" style="left:51.4%;top:95.8%;width:39.5%;height:2%" href="https://www.linkedin.com/in/aradhika-patil-b7b65224a" target="_blank" rel="noopener" aria-label="Aradhika Patil on LinkedIn"></a>
 </section>
 </main>
-</body>
+<script>(()=>{const nav=document.querySelector('.sticky-nav');const page=document.querySelector('.portfolio');const update=()=>{const threshold=page.getBoundingClientRect().width*(40/1441);nav.classList.toggle('is-sticky',window.scrollY>threshold)};addEventListener('scroll',update,{passive:true});addEventListener('resize',update);update()})();</script></body>
 </html>
